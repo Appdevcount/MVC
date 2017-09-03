@@ -1,0 +1,77 @@
+﻿@model MVC.Models.CheckModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CheckboxListTEST</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/CustomValidatorjs.js"></script>
+    <script type="text/javascript">
+        //(function ($) {
+        //    $.validator.unobtrusive.adapters.addBool("checkboxrequired", "required");
+        //}(jQuery));
+        //(function ($) {
+        //    $.validator.unobtrusive.adapters.addBool("checkboxssssssssssrequired", "required");
+        //}(jQuery));
+        $(function () {
+            var name = 'Checkboxlist';
+            var displayName = 'Checkboxlist';
+
+            validate.checkbox(name, 'Client side validation : ' + displayName + ' checkboxes must have at least one selection.');
+        });
+    </script>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        @*<table>
+                <tr>
+                    <td>@Html.CheckBoxFor(m => m.TermsConditions)</td>
+                    <td>@Html.LabelFor(m => m.TermsConditions)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        @Html.ValidationMessageFor(m => m.TermsConditions, "", new { @class = "error" })
+                    </td>
+                </tr>
+            </table>*@
+        <fieldset>
+            <legend>Form with checkboxes</legend>
+            <div class="display-label">The List</div>
+            <div class="display-checkbox">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @foreach (var item in Model.Checkboxlistsources)
+                {
+                    @*<input type="checkbox" @Html.Raw(item.Selected ? "checked='checked'" : "") name="@(MetadataHelpers.GetPropertyName<CheckModel>(m => m.Checkboxlist))" value="@item.Value" />*@  @Html.Label(item.Text)
+                    <input type="checkbox" @Html.Raw(item.Selected ? "checked='checked'" : "") name="Checkboxlist" value="@item.Value" />  @Html.Label(item.Text)
+
+                }
+            </div>
+            @Html.ValidationMessageFor(m => m.Checkboxlist, "", new { @class = "error" })
+            <input type="submit" value="Create" class="btn btn-default" />
+        </fieldset>
+    }
+    </body>
+</html>

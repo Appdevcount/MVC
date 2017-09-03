@@ -1,0 +1,851 @@
+﻿
+@{
+    ViewBag.Title = "JS";
+}
+
+<h2>JS</h2>
+<br />
+<br />
+
+<script type="text/javascript">
+    function datedisp() {
+        document.getElementById('p1').innerHTML = Date()
+    }
+</script>
+<button type="button" onclick="datedisp()">
+    Click me to display Date and Time.
+</button>
+<p id="p1"></p>
+<hr />
+<p id="p2">JavaScript can change HTML content.</p>
+<button type="button" onclick="document.getElementById('p2').innerHTML='Javascript Content Changed'">Click to change Button Content</button>
+<hr />
+<script type="text/javascript">
+    function changepicon() {
+        var p11 = document.getElementById('myImage');
+        p11.setAttribute('src', '../AJSTestFolder/Images/pic_bulbon.gif');
+    }
+    function changepicoff() {
+        var p11 = document.getElementById('myImage');
+        p11.setAttribute('src', '../AJSTestFolder/Images/pic_bulboff.gif');
+        
+    }
+</script>
+<p>In this case JavaScript changes the src (source) attribute of an image.</p>
+<button onclick="changepicon()">Turn on the light</button>
+<img src="~/AJSTestFolder/Images/pic_bulboff.gif" id="myImage" style="width:25px;height:25px" />
+<button onclick="changepicoff()">Turn off the light</button>
+<hr />
+<script type="text/javascript">
+    function stylechange() {
+        var stid = document.getElementById('p3').style.fontSize = '25px';
+    }
+</script>
+<p id="p3">JavaScript can change the style of an HTML element.</p>
+<button type="button" onclick="stylechange()">Click Me!</button>
+<hr />
+<script type="text/javascript">
+    function hideelelement() {
+        document.getElementById('p4').style.display = 'none';
+    }
+</script>
+<p id="p4">JavaScript can hide HTML elements.</p>
+<button type="button" onclick="hideelelement()">Click Me!</button>
+<hr />
+<script type="text/javascript">
+    function showel() {
+        document.getElementById('p5').style.display ='block';
+    }
+    var kjg=
+    {
+        jhs="asf",
+        lbsdl
+    }
+    jhagd.adddlert.,vnav nv;.a nv
+</script>
+<i></i>
+
+<p>JavaScript can show hidden HTML elements.</p>
+<p id="p5" style="display:none">Hello JavaScript!</p>
+<button type="button" onclick="showel()">Click Me!</button>
+<hr />
+<p>External JavaScript</p>
+<p id="p6">A Paragraph.</p>
+<button type="button" onclick="Changeelinnerhtml()">Try it</button>
+<p>(myFunction is stored in an external file called "~/AJSTestFolder/CustomJS.js" or it can be stored over the internet like < script src="http://www.w3schools.com/js/myScript.js ">< /script>)</p>
+<script src="~/AJSTestFolder/CustomJS.js"></script>
+<hr />
+<p>JavaScript Operators</p>
+<p>JavaScript uses arithmetic operators to<b> compute values (just like algebra) , operators(all) ,statement termination(;),comments(//, /**/) ,Case Sensitives</b></p>
+<p id="p7"></p>
+<script>
+    var x, y, z;
+    x = 10; y = 2; z = 3;
+    document.getElementById("p7").innerHTML = (x + y) * z;
+</script>
+<hr />
+<p>JavaScript Variables</p>
+<p>A variable declared without a value will have the value undefined.</p>
+<p id="p8"></p>
+<script>
+    var carName;
+    document.getElementById("p8").innerHTML = carName;
+</script>
+<hr />
+<p>In this example, y is incremented before it is assigned to x (pre-incremented, works similarly for pre-decremented value,also x += 5;x -= 5;x *= 5;x /= 5;x %= 5;). Also can do string concatenation with operators.</p>
+<p id="p9"></p>
+<p id="p10"></p>
+<script>
+    var y = 5;
+    var x = ++y;
+    document.getElementById("p9").innerHTML = y;
+    document.getElementById("p10").innerHTML = x;
+</script>
+<hr />
+<p>DataTypes</p>
+<p>It takes care of HTML elements while rendering</p>
+<script>
+    var person = {
+        Fname: "Karun",
+        Lname: "Nair",
+        Age: 27,
+        fullName: function (randometext1, randometext2) {
+            return randometext1 + randometext2  +this.Fname + " " + this.Lname;
+        }
+
+    }
+    function datatypetutorialcall() {
+        var y = 5;
+        var x = ++y;
+        document.getElementById("p11").innerHTML = x + "<br/>" + x;
+        var cars = ["Maruti", "Honda", 7272];
+        document.getElementById('p12').innerHTML = cars[0] + cars[1] + cars[2];
+
+        document.getElementById('p13').innerHTML = person.Fname + person.fullName('rand1', 'rand2') + person.Age + person["Age"] + person["Fname"];
+        var unassignedvar;
+        document.getElementById("p14").innerHTML =
+       typeof "john" + "<br>" +
+        typeof 3.14 + "<br>" +
+        typeof NaN + "<br>" +
+        typeof false + "<br>" +
+        typeof [1, 2, 3, 4] + "<br>" +
+        typeof { name: 'john', age: 34 } + "<br>" +
+        typeof new Date() + "<br>" +
+        typeof function () { } + "<br>" +
+        typeof myCar + "<br>" +
+        typeof null + "<br>" +
+        typeof unassignedvar;
+    }
+</script>
+<input type="button" onclick="datatypetutorialcall()" value="Click for Datatype operation test" />
+<p id="p11"></p>
+<p id="p12"></p>
+<p id="p13"></p>
+<p id="p14"></p>
+<hr />
+<p>Javascript String[.length, '\' newline character,.indexOf(""),.match(/ain/g),.replace("Microsoft","W3Schools"),.toUpperCase(),.toLowerCase(),.split(",")],
+    .substr(),charAt(), can also use regular expression like str.search(/w3Schools/i)</p>
+<p id="p15"></p>
+<script>
+    var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    document.getElementById("p15").innerHTML = "String length" + txt.length;
+    document.getElementById("p15").innerHTML = "Hello \
+    Dolly.";
+    var str = "a,b,c,d,e,f";
+    var arr = str.split(",");
+    document.getElementById("p15").innerHTML = arr[0];
+</script>
+<hr />
+@*<p>Javascript Math</p>
+    <p>Math.PI returns the ratio of a circle's circumference to its diameter,Math.round(x) returns the value of x rounded down to its nearest integer,Math.pow(x,y) returns the value of x to the power of y,Math.sqrt(x) returns the square root of x,Math.abs(x) returns the absolute (positive) value of x,Math.ceil() rounds a number up to its nearest integer,Math.floor(x) returns the value of x rounded downn to its nearest integer,Math.sin(x) returns the sin of x (given in radians),Math.cos(x) returns the cosin of x (given in radians),Math.max( and min()) returns the highest value in a list of arguments.,</p>*@
+
+@*<p>JavaScript Math.random()</p>
+    <p>Math.random() returns a random number between 0 (included) and 1 (excluded):</p>
+    <p>Math.floor(Math.random() * 10) returns a random integer between 0 and 10 (both included).</p>*@
+
+<p>Javsscript Datetime[var d= new Date()]</p>
+<p>
+    setTimeout(function, milliseconds) Executes a function, after waiting a specified number of milliseconds.
+</p><p>
+    setInterval(function, milliseconds) has clearInterval(intervalId of setInterval()) to stop execution of setInterval.. Same as setTimeout(), but setInterval() repeats the execution of the function continuously.. has clearTimeout(intervalId of setTimeout()) to stop exceution
+</p>
+<script>
+    function datetest() {
+        var d = new Date();
+        var dtest = d.getDate() +
+        d.getDay() +
+        d.getFullYear() +
+        d.getHours() +
+        d.getMinutes() +
+        d.getMilliseconds() +
+        d.getMonth() +
+        d.getSeconds() +
+        d.getTime() +
+        d.toJSON() +
+        d.getTimezoneOffset() +
+        d.getYear() +
+        d.setFullYear(2012, 1, 1) +
+        d.toDateString() +
+        d.toUTCString();
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('p18').innerHTML = dtest + " " +
+        h + ":" + m + ":" + s;
+        var t = setTimeout(datetest, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+<p id="p17" onclick="datetest()"><b>Click here for testing date operations</b></p>
+<p id="p18"></p>
+<hr />
+<p>Javscript Array</p>
+<p>
+    Arrays  can use Concat(a1,a2) for joing with other arrays. Join() on arrays willconvert it to single series of string,
+    toString() method returns an array as a comma separated string,
+    pop() removes last element from array,
+    push("") adds new element,shift() removes first element from arrays shifts others up in array,
+    sort() and reverse() are alphabetical ordering methods ,unshift() adds new element in the beginning of arrays ,
+    slice(1,3) display elements fom 1st argument to < 2nd argument,
+    splice(startposition,deletecount,"","",..) method adds new elements by optionially deleting some elements to an array,
+    sort(function(a, b){return a - b}) for number asc  and sort(function(a, b){return b - a}) for number desc,
+    can also sort Objects by its properties
+</p>
+@*<p id="p19" onclick="arraytest()"><b>Cick for Array operations</b></p>*@
+@*<p id="p21" onclick="objectsorting()"><b>Cick for Object Sorting</b></p>*@
+<script>
+    var arr1 = ["Cecilie", "Lone"];
+    var arr2 = ["Emil", "Tobias", "Linus"];
+    var arr3 = ["Robin", "Morgan"];
+    var cars = [
+    { type: "Volvo", year: 2016 },
+    { type: "Saab", year: 2001 },
+    { type: "BMW", year: 2010 }]
+    var bigarr = arr1.concat(arr2, arr3);
+    function arraytest() {
+        document.getElementById("p19").innerHTML = "";
+        document.getElementById("p19").innerHTML = bigarr + bigarr.join("*") + bigarr.toString() + bigarr.splice(2, 0, "spliced1", "spliced2");
+    }
+    displayCars();//calling before sorting
+    function objectsorting() {
+        cars.sort(function (a, b) {
+            return a.year - b.year  //Sorting by number property , so simple to use - operator
+
+            //var x = a.type.toLowerCase(); // sorting by string property , so we need to make it uniform by string case
+            //var y = b.type.toLowerCase();
+            //if (x < y) { return -1; }
+            //if (x > y) { return 1; }
+            //return 0;
+        });
+        displayCars();//calling after sortng
+    }
+    function displayCars() {
+
+        document.getElementById("p21").innerHTML = "";
+        document.getElementById("p21").innerHTML =
+        cars[0].type + " " + cars[0].year + "<br>" +
+        cars[1].type + " " + cars[1].year + "<br>" +
+        cars[2].type + " " + cars[2].year;
+    }
+
+</script>
+<hr />
+<p>Type Conversion</p>
+<p>
+    The constructor property returns the constructor function for a variable or an
+    object.
+</p>
+
+<p id="p22"></p>
+
+<script>
+    document.getElementById("p22").innerHTML =
+        "john".constructor + "<br>" +
+        (3.14).constructor + "<br>" +
+        false.constructor + "<br>" +
+        [1, 2, 3, 4].constructor + "<br>" +
+        { name: 'john', age: 34 }.constructor + "<br>" +
+        new Date().constructor + "<br>" +
+        function () { }.constructor;
+</script>
+<p>The toString() method converts a number to a string.</p>
+<hr />
+<p>Boolean() method</p>
+<p>Comparisons can be (x <= 8)(x == 8)(x === 8)(x != 8)(x !== 8)(x >= 8)...</p>
+<p id="p23" onclick="Booltest()"><b>Click here for Bool test</b></p>
+<script>
+    function Booltest() {
+        var b1 = Boolean(100);
+        var b2 = Boolean(3.14);
+        var b3 = Boolean(-15);
+        var b4 = Boolean("Hello");
+        var b5 = Boolean('false');
+        var b6 = Boolean(1 + 7 + 3.14);
+        var undeclaredvar;
+        document.getElementById("p23").innerHTML =
+        "Boolean(100) is " + b1 + "<br>" +
+        "Boolean(3.14) is " + b2 + "<br>" +
+        "Boolean(-15) is " + b3 + "<br>" +
+        "Any (not empty) string Boolean('false') is " + b4 + "<br>" +
+        "Even the string Boolean('false') is " + b5 + "<br>" +
+        "Any expression (except zero) is " + b6 + "<br>" +
+        "Boolean() is " + Boolean("") + "<br>" +
+        "Boolean(9>2) is " + Boolean(9 > 2) + "<br>" +
+        "Boolean(NaN) is " + Boolean(NaN) + "<br>" +
+        "Boolean(0) is " + Boolean(0) + "<br>" +
+        "Boolean(-0) is " + Boolean(-0) + "<br>" +
+        "Boolean(undeclaredvar) is " + Boolean(undeclaredvar) + "<br>" +
+        "Boolean(null) is " + Boolean(null) + "<br>" +
+        "Boolean(10/a) is " + Boolean(10 / "a");
+    }
+</script>
+<hr />
+<p>Javscript Conditionals</p>
+<button onclick="Condtest()">Condtest</button>
+
+<p id="p24"></p>
+
+<script>
+    function Condtest() {
+        var greeting;
+        var time = new Date().getHours();
+        if (time < 10) {
+            greeting = "Good morning";
+        } else if (time < 20) {
+            greeting = "Good day";
+        } else {
+            greeting = "Good evening";
+        }
+        var text;
+        if (Math.random() < 0.5) {
+            text = "<a href='http://w3schools.com'>Visit W3Schools</a>";
+        } else {
+            text = "<a href='http://wwf.org'>Visit WWF</a>";
+        }
+        var day;
+        switch (new Date().getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+        }
+
+        document.getElementById("p24").innerHTML = greeting + "--" + text + "--" + day;
+    }
+</script>
+<hr />
+<p>Javscript Closures - functions within functions</p>
+<p>Anonymous functions - functions without name</p>
+<p>Javascript (arguments) object is available with in all functions in Javascript. It contains all parameters passed to the function(even for a parameter less function) like function(){arguments.length; arguments[0]...} </p>
+<p>To return a value from the function use return keyword at last</p>
+<hr />
+<p>Looping like C#[for,while,do while,The for/in statement loops through the properties of an object.(like foreach in c#), break and continue in loop, can also use ternary operators ?: as C#]</p>
+<button onclick="looper()">looper</button>
+<p id="p26"></p>
+
+<script>
+    function looper() {
+        //Forloop
+        var x = "", i;
+        for (i = 0; i < 5; i++) {
+            //if (i === 3) { continue/break; }// Continue will skipp that iteration/ Break will terminate the loop
+            x = x + "Forloop The number is " + i + "<br>";
+        }
+        //Whileloop
+        var text = "";
+        var J = 0;
+        while (J < 10) {
+            text += "<br> Whileloop The number is " + J;
+            J++;
+        }
+        //Dowhileloop
+        var textd = ""
+        var id = 0;
+
+        do {
+            textd += "<br>Dowhileloop The number is " + id;
+            id++;
+        }
+        while (id < 10);
+
+        //The for/in statement loops through the properties of an object
+        var txt = "";
+        var persond = { fname: "John", lname: "Doe", age: 25 };
+        var xdd;
+        for (xdd in persond) {
+            txt += "for/in statement loops through the properties of an object" + persond[xdd] + " ";
+        }
+        document.getElementById("p26").innerHTML = x + text + textd + txt;
+
+    }
+</script>
+<hr />
+
+<p>Exception handling</p>
+<p>alert() method is a notifier,,,prompt() method takes argument value from user,,confirm() method for OK Cancel option,,,
+    document.location.href property to redirect to a different URL,,,, Using onerror event by assigning some exception handler method to it</p>
+<script>
+    window.onerror = handleErr;// when onerror even is raised when the error is not caught inside try block, 
+    //so we are assigning a method to onerror event so that it can exceute when an error has occured
+    var txt = "";
+    function excallmessage() {
+        try {
+            adddlert("Welcome guest!");
+        }
+        catch (err) {
+
+            txt = "There was an error on this page." + err.name + err.message + "\n\n";
+            txt += "Click OK to continue viewing this page,\n";
+            txt += "or Cancel to return to the home page.\n\n";
+            if (!confirm(txt)) {
+                document.location.href = "http://www.w3schools.com/";
+            }
+
+        }
+        finally {
+
+        }
+    }
+    //or
+    function handleErr(msg, url, l) {
+        txt = "There was an error on this page.\n\n";
+        txt += "Error: " + msg + "\n";
+        txt += "URL: " + url + "\n";
+        txt += "Line: " + l + "\n\n";
+        txt += "Click OK to continue.\n\n";
+        alert(txt);
+        return true;
+    }
+</script>
+<input type="button" value="View Exception call message" onclick="excallmessage()" />
+
+<hr />
+<p>Javascript Object</p>
+<p>Object creation using new and constructor</p>
+<p>
+    var person = new Object();<br />
+    person.firstName = "John";<br />
+    person.lastName = "Doe";<br />
+    person.age = 50;<br />
+    person.eyeColor = "blue";<br />
+</p>
+<p>
+    Adding methods to an object is done inside the constructor function:<br />
+
+    Example<br />
+    function person(firstName, lastName, age, eyeColor) {<br />
+    this.firstName = firstName;<br />
+    this.lastName = lastName;<br />
+    this.age = age;<br />
+    this.eyeColor = eyeColor;<br />
+    this.changeName = function (name) {<br />
+    this.lastName = name;<br />
+    };<br />
+    }
+</p>
+<p>
+
+    var myFather = new person("John", "Doe", 50, "blue");<br />
+    var myMother = new person("Sally", "Rally", 48, "green");
+</p><br />
+<p>Can add new properties to object as - obj.newprop="";</p>
+<p>Can delte existing properties with delete keyword as - delete person.age;</p>
+<hr />
+<p><b>HTML Objects [Acessing and Creating/Modifying]</b></p>
+<p>HTML Wrapper methods for strings in Javscript are available like .bold()... <b>Complete Javascript reference at </b> http://www.w3schools.com/jsref/default.asp </p>
+<p> <b>Complete HTML Objects Reference</b> http://www.w3schools.com/jsref/dom_obj_anchor.asp </p>
+ var x = document.getElementById("myAnchor").href;<br />
+    document.getElementById("demo").innerHTML = x;<br />
+var x = document.createElement("A");<br />
+    var t = document.createTextNode("Tutorials");<br />
+    x.setAttribute("href", "http://www.w3schools.com");<br />
+    x.appendChild(t);<br />
+    document.body.appendChild(x);<br />
+<audio id="myAudio" controls>
+    <source src="http://www.w3schools.com/jsref/horse.mp3" type="audio/ogg">
+    <source src="horse.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<p><bdo id="myBdo" dir="rtl">This paragraph will go right-to-left.</bdo></p>
+<p><bdo id="myBdo" dir="ltr">This paragraph will go left-to-right.</bdo></p>
+<p>style.display="none/block" will hide or render the particular HTML element </p>
+<p>Dynamic HTML Element creation</p>
+<button onclick="btncreate()">Craete Button by clicking it, also TEST prompt method</button>
+<p id="p29"></p>
+<script>
+    function btncreate() {
+        var somenum = Number(prompt("Just  Test , Please enter a number", ""));
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode("Click me");
+        x.appendChild(t);
+        document.getElementById('p29').appendChild(x);
+    }
+</script>
+<p>The HTML5 < canvas> tag is used to draw graphics, on the fly, with JavaScript.</p>
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<p>Click the button to draw on the canvas.</p>
+
+<button onclick="Canvasdrawing()">Try it</button>
+
+<script>
+    function Canvasdrawing() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(20, 20, 150, 100);
+    }
+</script>
+<dl>
+    <dt id="myDT">Coffee</dt>
+    <dd>Black hot drink</dd>
+</dl>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<p>A demonstration of how to access a COL element</p>
+
+<table>
+    <colgroup>
+        <col id="myCol" span="2" style="background-color:red">
+        <col style="background-color:yellow">
+    </colgroup>
+    <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>3476896</td>
+        <td>My first HTML</td>
+        <td>$53</td>
+    </tr>
+    <tr>
+        <td>5869207</td>
+        <td>My first CSS</td>
+        <td>$49</td>
+    </tr>
+</table>
+<details id="myDetails">
+    Some additional details...
+</details>
+<dl id="myDL">
+    <dt>Coffee</dt>
+    <dd>Black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>White cold drink</dd>
+</dl>
+<p><b>document.getElementsByTagName("HTML")[0].innerHTML</b></p>
+<p>A demonstration of how to access an IFRAME element</p>
+
+<iframe id="myFrame" src="https://www.google.com"></iframe>
+
+<p>A demonstration of how to access an EMBED element</p>
+
+<embed id="myEmbed" src="http://www.w3schools.com/jsref/helloworld.swf">
+<p>A demonstration of how to access a FIELDSET element</p>
+
+<fieldset id="myFieldset" name="personalia">
+    Name: <input type="text" name="username"><br>
+    Email: <input type="text" name="usermail"><br>
+</fieldset>
+<figure>
+    <img src="http://www.w3schools.com/tags/img_pulpit.jpg" alt="The Pulpit Rock" width="50" height="50">
+    <figcaption id="myFigCap">Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+</figure>
+
+<p>A demonstration of how to access a Color picker</p>
+
+Select your favorite color: <input type="color" id="myColor">
+
+<button onclick="colorp()">Click to get Color value</button>
+
+<p id="p30"></p>
+
+<script>
+    function colorp() {
+        var x = document.getElementById("myColor").value;
+        document.getElementById("p30").innerHTML = x;
+    }
+</script>
+
+<p>A demonstration of how to access a Date fields</p>
+
+<input type="date" id="myDate" value="2014-02-09">
+<input type="datetime-local" id="myLocalDate" value="2014-11-16T15:25:33">
+E-mail: <input type="email" id="myEmail" value="john@example.com">
+<input type="file" id="myFile">
+<input type="hidden" id="myInput" value="W3Schools">
+<input type="month" id="myMonth" value="2014-05">
+<input type="number" id="myNumber" value="2">
+Password: <input type="password" id="myPsw" value="psw123">
+Radio Button: <input type="radio" id="myRadio">
+<input type="range" id="myRange" value="90">
+<input type="reset" id="myReset" value="Reset the form">
+<input type="search" id="mySearch" placeholder="Search for something..">
+<input type="submit" id="mySubmit" value="Submit the form">
+<input type="text" id="myText" value="Some text...">
+<input type="time" id="myTime" value="22:15:00">
+Homepage: <input type="url" id="myURL" value="http://www.google.com">
+<input type="week" id="myWeek" value="2014-W15">
+<label id="myLabel" for="male">Male</label>
+<input type="radio" name="sex" id="male" value="male"><br>
+<ol>
+    <li id="myLi">Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+    <li>Water</li>
+</ol>
+
+<link id="myLink" rel="stylesheet" type="text/css" href="styles.css">
+<p>Peter's score: <meter id="myMeter" min="0" low="40" high="95" max="100" value="65"></meter></p>
+<meter min="0" low="40" high="95" max="100" value="30"></meter>
+<meter min="0" low="40" high="95" max="100" value="98"></meter>
+<nav id="myNav">
+    <a href="#">HTML</a> |
+    <a href="#">CSS</a>
+</nav>
+<object id="myObject" width="50" height="50" data="http://www.w3schools.com/jsref/helloworld.swf"></object>
+<iframe width="100" height="100" src="https://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1"></iframe>
+<iframe width="100" height="100" src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
+<select size="4">
+    <optgroup id="myOptgroup" label="Swedish Cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="koenigsegg">Koenigsegg</option>
+    </optgroup>
+</select>
+
+<p>A demonstration of how to access an output element</p>
+
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+    0
+    <input type="range" id="a" value="50">100
+    +<input type="number" id="b" value="50">
+    =<output id="myOutput" name="x" for="a b"></output>
+</form>
+<object data="horse.wav">
+    <param id="myParam" name="autoplay" value="true">
+</object>
+Downloading progress:
+<progress id="myProgress" value="75" max="100">
+</progress>
+<audio controls>
+    <source id="mySource" src="horse.mp3" type="audio/mpeg">
+    <source src="horse.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+<details>
+    <summary id="mySummary">Copyright 1999-2014.</summary>
+    <p> - by Refsnes Data. All Rights Reserved.</p>
+</details>
+Address:<br>
+<textarea id="myTextarea">
+    342 Alvin Road
+    Ducksburg
+</textarea>
+
+<video id="myVideo" width="150" height="150" controls>
+    <source src="http://www.w3schools.com/jsref/movie.mp4" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+    Your browser does not support the video tag.     var x = document.getElementById("myVideo").duration;
+</video>
+<br /><b>Javascript HTML DOM Methods and properties</b><br />
+<p>getElementById(),getElementsByClassName(name),getElementsByTagName(name),innerHTML,style.display = ,setAttribute(ATT,VAL),attribute,.style.propertie(s)=</p>
+<p>Adding Event handlers - document.getElementById(id).onclick = function(){code}</p>
+JavaScript can "display" data in different ways:<br />
+
+Writing into an alert box, using window.alert().<br />
+Writing into the HTML output using document.write().<br />
+Writing into an HTML element, using innerHTML.<br />
+Writing into the browser console, using console.log().<br />
+
+<p>Javascript Events</p>
+<p>
+    Events can be invoked from
+    <br /> 1)HTML tag event attributes
+    <br /> 2)DOM Object(created by browser when html loads) property[doc.getel().propsevents]
+    <br /> 3)Special methods [ElementId.addEventListener(eventtype,function,phase(optional)),ElementId.removeEventListener(eventtype,function,phase(optional))
+    <br /> 3rd optional parameter - phase false enable event bubbling[inner to outer] true enables event capturing[outer to inner]
+</p>
+<p>While calling the event function , the event object is passed with the function  and can access its propertie with in the event function just like arguments object in functions</p>
+<p>Event bubbling can be stopped using event.stopPropagation() method</p>
+<p>Preventing broser defaults using oncontextmenu attribute of HTML attributes as "=return false" or by using event object as event.Preventdefaults</p>
+onclick="document.getElementById('demo').innerHTML = Date()"><br />
+onclick="this.innerHTML = Date()"<br />
+onclick="displayDate()"<br />
+<p>Here is a list of some common HTML events:</p>
+<table class="w3-table-all" style="width: 100%">
+    <tr>
+        <th>Event</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>onchange</td>
+        <td>An HTML element has been changed</td>
+    </tr>
+    <tr>
+        <td>onclick</td>
+        <td>The user clicks an HTML element</td>
+    </tr>
+    <tr>
+        <td>onmouseover</td>
+        <td>The user moves the mouse over an HTML element</td>
+    </tr>
+    <tr>
+        <td>onmouseout</td>
+        <td>The user moves the mouse away from an HTML element</td>
+    </tr>
+    <tr>
+        <td>onkeydown</td>
+        <td>The user pushes a keyboard key</td>
+    </tr>
+    <tr>
+        <td>onload</td>
+        <td>The browser has finished loading the page</td>
+    </tr>
+</table>
+<p>The list is much longer: <a href="/jsref/dom_obj_event.asp">W3Schools JavaScript Reference HTML DOM Events</a>.</p>
+<hr />
+<p>Window Object</p>
+<p>
+    window.open(url,name,features,replace) - for opening a window in browser<br />
+    window.open("http://www.w3schools.com","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");</p>
+<hr />
+<p><b>Javascript debugging - Refer </b></p>
+<hr />
+<p>
+    JavaScript function can also be defined using an expression.<br />
+
+    A function expression can be stored in a variable:<br />
+    var x = function (a, b) {return a * b};<br />
+    After a function expression has been stored in a variable, the variable can be used as a function:<br />
+    var x = function (a, b) {return a * b};<br />
+    var z = x(4, 3);
+</p>
+<hr />
+<p>Class</p>
+<p>Class object can be created 
+    1) using contructor function func(a,b){this.a=a;this.b=b;}.This allows multiple instances of object
+    2) by using Literal notation var obj={a:;b:}</p>
+<p>
+    very JavaScript object has a prototype. The prototype is also an object.
+    <br />
+    All JavaScript objects inherit their properties and methods from their prototype.<br />
+    The JavaScript prototype property also allows you to add new methods to an existing prototype:<br />
+
+    Example<br />
+    function Person(first, last, age, eyecolor) {<br />
+    this.firstName = first;<br />
+    this.lastName = last;<br />
+    this.age = age;<br />
+    this.eyeColor = eyecolor;<br />
+    }<br />
+    Person.prototype.name = function() {<br />
+    return this.firstName + " " + this.lastName;<br />
+    };
+</p>
+
+<p>Using prototype object , we can add members[properties ,functions] to a class from outside so that it will have an effect on all its instances</p>
+<hr />
+<p>No Function Overloading in Javascript, so using like that will cause Global namespace pollution</p>
+<p>This can be avoided by creating different Namespaces</p>
+
+<hr />
+<p>Public Private members in Javascript</p>
+<p>privileged members - using this keyword during declaration in class</p>
+<p>public members - using prototype property[funcname.prototype.membername= function(){}] of contructor function during declaration</p>
+<p>private members - just using var in declaration</p>
+<p>We can customly define getters and setters for the properties in class</p>
+<hr />
+<p>Inheritance</p>
+<p>Using  protype we can iherit from object to other object as - classb.prototype=classa</p>
+<hr />
+<p>Abstract Class</p>
+<p>Cant create instance for abstract clas by can inerit and use</p>
+<p>Can create abstract class in Javscript by throwing exception in object , so that it will prevent creating instance of that class/object</p>
+<p>we can inherit that using prototype - classb.prototype=object.create(class.prototype) and the creating inctance of classb</p>
+<hr />
+<p>Javscript Cookies</p>
+<p>set by using document.cookie="name=value;expires=valuesdate";or use max-age=seconds </p>
+<p>document.cookie.length; document.cookie.split("="); var[0],...  Also can set domain and path attribues in the cookie</p>
+<p>To store multiple Key Value pairs in single cookie use JSON object in single key value</p>
+<p>use navigator.cookieenabled property to check if cookies re enabled in the browser</p>
+<p>use < noscript> element to check if Javscript is enabled in the browser or not</p>
+<p>window.location = "" can be used to redirect to different page, if javscript is disabled it will display that message.. window.location has other properties alos like href,hostname,pathname,protocol</p>
+<hr />
+<p>Debugging in Javscript - Use Browser Developer tools for setting breakpoint, inspecting variable and more</p>
+<hr />
+<p>JSON - is like native Javscript Objects</p>
+<p>
+    JavaScript string containing JSON syntax:<br />
+
+    var text = '{ "employees" : [' +<br />
+    '{ "firstName":"John" , "lastName":"Doe" },' +<br />
+    '{ "firstName":"Anna" , "lastName":"Smith" },' +<br />
+    '{ "firstName":"Peter" , "lastName":"Jones" } ]}';<br />
+    Then, use the JavaScript built-in function JSON.parse() to convert the string into a JavaScript object:
+    <br />
+    var obj = JSON.parse(text); <br />
+    Finally, use the new JavaScript object in your page:<br />In reverese we can use JSON.stringify(jobj) to convert object to JSON to pass in AJAX request
+</p>
+
+<hr />
+<p>JS form validations can be done using onsubmit() event attribute in HTML elements</p>
+<p>HTML5 introduced a new HTML validation concept called constraint validation.</p>
+<p>Constaint Validation - HTML Input attributes[value,readonly,required,autocomplete="off"....]</p>
+http://www.w3schools.com/html/html_form_attributes.asp
+<form action="">
+    <input type="text" name="firstname" value="John">
+    <input type="text" name="firstname" value="John" readonly>
+    <input type="text" name="firstname" value="John" disabled>
+    <input type="text" name="firstname" value="John" size="40">.....like that
+    E-mail: <input type="email" name="email" autocomplete="off">
+    First name:<input type="text" name="fname" autofocus>
+    Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+</form>
+
+<p>Constaint Validation - CSS Pseudo class validators</p>
+http://www.w3schools.com/css/default.asp
+A pseudo-class is used to define a special state of an element.
+
+For example, it can be used to:
+
+Style an element when a user mouses over it
+Style visited and unvisited links differently
+Style an element when it gets focus
+<hr />
+<p>
+    JS Ajax
+</p>
+<p>The XMLHttpRequest object is used to exchange data with a server behind the scenes. 
+    This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+
+
+

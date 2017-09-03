@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "ModalTest";
+}
+<h2>ModalTest</h2>
+<script type="text/javascript">
+    $('#btnUploadCancel').click(function () {
+        $('#upload-avatar').modal('toggle');
+    });
+</script>
+
+<style type="text/css">
+    #upload-avatar {
+	z-index: 1080 !important;
+}
+</style>
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
+</button>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Application Form</h4>
+            </div>
+
+            <!-- START OF MODAL BODY-->
+
+            <div class="modal-body">
+
+                <p>
+                    <a href="#" data-toggle="modal" data-target="#upload-avatar" class="button"><i class="fa fa-plus"></i> Upload new avatar</a>
+                </p>
+                @Html.Partial("_LoginPartial")
+
+            </div>
+
+            <!-- END OF APPLICATION FORM MODAL BODY -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    <!--Modal for uploading photo-->
+
+
+</div>
+
+
+<div id="push"></div>
+
+<div class="modal" id="upload-avatar" tabindex="-1" role="dialog" aria-labelledby="upload-avatar-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="upload-avatar-title">Upload new avatar</h4>
+            </div>
+            <div class="modal-body">
+                <p>Please choose a file to upload. JPG, PNG, GIF only.</p>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="file">File input</label>
+                        <input type="file" id="file">
+                        <p class="help-block">Files up to 5Mb only.</p>
+                    </div>
+                    <button type="button" class="hl-btn hl-btn-default" id="btnUploadCancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="hl-btn hl-btn-green">Upload</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+

@@ -1,0 +1,97 @@
+﻿@model MVC.Models.FORMmodel
+
+@{
+    ViewBag.Title = "FORM";
+}
+
+<h2>FORM</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>FORMmodel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.UName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+        @Html.LabelFor(model => model.DDMobileBrand, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.SelectedDepartmentDD,Model.DDMobileBrand,"--Select--", new { htmlAttributes = new { @class = "form-control" } })
+
+            @Html.ValidationMessageFor(model => model.DDMobileBrand, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.DDMobilBrandDB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedDepartmentDD, Model.DDMobilBrandDB, "--Select--", new { htmlAttributes = new { @class = "form-control" } })
+                @*MVC.Controllers.FormController.DDL()*@
+                @Html.ValidationMessageFor(model => model.DDMobilBrandDB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+        @*<div class="col-md-10">*@
+        @Html.LabelFor(model => model.CHKMobileBrandlist, htmlAttributes: new { @class = "control-label col-md-2" })
+        @for (var i = 0; i < Model.CHKMobileBrandlist.Count; i++)
+        {
+
+        @*<div class="form-group">*@
+            @*<div class="col-md-10">*@
+                @Html.HiddenFor(model=>model.CHKMobileBrandlist[i].id)
+                @Html.DisplayFor(model => model.CHKMobileBrandlist[i].name)
+                @Html.CheckBoxFor( model => model.CHKMobileBrandlist[i].@checked , new { htmlAttributes = new { @class = "form-control"  } })
+                @*@Html.ValidationMessageFor(model => model.CHKMobileBrandlist, "", new { @class = "text-danger" })*@
+            @*</div>*@
+        @*</div>*@
+        }
+        @*</div>*@
+        </div>
+        <div class="form-group">
+        @*<div class="col-md-10">*@
+@Html.LabelFor(model => model.RBMobileBrand, htmlAttributes: new { @class = "control-label col-md-2" })
+@foreach (var rb in Model.RBMobileBrand)
+{
+
+        @*<div class="form-group">*@
+            <div class="col-md-10">
+                @Html.RadioButtonFor(model => model.SelectedDepartmentRB, rb.ID)@rb.NAME
+            </div>
+        @*</div>*@
+}
+            @*</div>*@
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,1701 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>KudBootstrap</title>
+    <!-- Bootstrap -->
+    <link href="~/ABootstrap/KudBootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/ABootstrap/KudBootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1>KudBootstrap!</h1>
+    <br />
+    <p>Setting Up</p>
+    <p>==================================================</p>
+    Can download customized/selective Bootstrap components from <a href="http://getbootstrap.com/customize">http://getbootstrap.com/customize</a>
+    Compiled version of downloaded bootstrap zip file contains - css,fonts,js folders
+    css folder- bootstrap.css[core css controls and components],bootstratp.css.map[source map file to map the minified version with actual file during debugging],bootstrap.theme.css[themes and visual special effects like 3D efffects,gradients,Shadow etc...]
+    fonts folder - glyphicon files
+    js folder - bootstrap.js optional[bootstrap widgets like picture corousel,dropdownmenu,accordian effects... Bootsrap javascript has depenency with jquery file]
+    npm.js[ file from nodejs , for npm installing nodejs]
+    <p>Include above all boostrap componenets in the empty project</p>
+    <p>The viewport meta tag in Head ensure proper rendering and touch zooming on a mobile device.</p>
+    <p>A standard basic empty Bootstrap templateto strat from <a href="http://getbootstrap.com/getting-started/#template">http://getbootstrap.com/getting-started/#template</a></p>
+    <br />
+    <p>GRID System Classes[12 Columns] Row should be with in Container</p>
+    <p>==================================================</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="customcoldiv">Column</div>
+            </div>
+            <div class="col-lg-6">
+                <div class="customcoldiv">Column</div>
+            </div>
+            <div class="col-lg-3">
+                <div class="customcoldiv">Column</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div>Column</div>
+            </div>
+            <div class="col-md-6">
+                <div>Column</div>
+            </div>
+            <div class="col-md-3">
+                <div>Column</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div>Column</div>
+            </div>
+            <div class="col-sm-6">
+                <div>Column</div>
+            </div>
+            <div class="col-sm-3">
+                <div>Column</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3 col-lg-4 col-md-2">
+                <div>Column</div>
+            </div>
+            <div class="col-xs-6 col-lg-4 col-md-8">
+                <div>Column</div>
+            </div>
+            <div class="col-xs-3 col-lg-4 col-md-2">
+                <div>Column</div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .customcoldiv {
+            margin: 3px;
+            min-height: 10px;
+            background-color: silver;
+            text-align: center;
+            font-size: large;
+        }
+    </style>
+    <br>
+    <p>Offset Classes for displacemnt of column in Row Col-xx-offset-[12]</p>
+    <p>==================================================</p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3 col-xs-offset-3">
+                <div class="customcoldiv img-circle" style="align-content:center">
+                    <img class="img-responsive " src="~/ABootstrap/KudBootstrap/Images/pic_bulbon.gif" />
+                </div>
+            </div>
+            <div class="col-xs-6 ">
+                <div class="customcoldiv">Column</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                <!--Nested row-->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="sidebarContent">Side Bar 1</div>
+                    </div>
+                </div>
+                <!--Nested rows-->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="sidebarContent">Side Bar 2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-9">
+                <div class="mainContent">Main Content Area</div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .sidebarContent {
+            background-color: silver;
+            text-align: center;
+            font-size: large;
+            min-height: 75px;
+            margin-bottom: 10px;
+        }
+
+        .mainContent {
+            background-color: silver;
+            text-align: center;
+            font-size: large;
+            min-height: 100px;
+        }
+    </style>
+    <br>
+    <p>Image Classes for Gallery</p>
+    <p>==================================================</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Bootstrap Image Gallery</h2>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-6">
+                <a href="~/ABootstrap/KudBootstrap/Images/pic_bulbon.gif" class="thumbnail">
+                    <p>Glow</p>
+                    <img src="~/ABootstrap/KudBootstrap/Images/pic_bulbon.gif" />
+                </a>
+            </div>
+            <div class="col-lg-8 col-md-9 col-sm-6">
+                <a href="~/ABootstrap/KudBootstrap/Images/pic_bulboff.gif" class="thumbnail">
+                    <p>Glown</p>
+                    <img src="~/ABootstrap/KudBootstrap/Images/pic_bulboff.gif" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <p>Responsive Utility Classes[visible-* ,hidden-* , visible-print, hidden-print] System[12 Columns]</p>
+    <p>=========================================================================</p>
+    <p>Diplay inline and inline-block reference - <a href="http://stackoverflow.com/questions/8969381/what-is-the-difference-between-display-inline-and-display-inline-block">http://stackoverflow.com/questions/8969381/what-is-the-difference-between-display-inline-and-display-inline-block</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 hidden-xs">
+                <div class="customDiv">Medium, Large and Small</div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 visible-lg visible-md visible-sm">
+                <div class="customDiv">Medium, Large and Small</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 hidden-print">
+                <div class="customDiv">Visible on browser NOT when printing</div>
+            </div>
+            <div class="col-xs-12 visible-print">
+                <div class="customDiv">Visible when printing</div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <p>Bootstrap topography - special handling of elelents with Boostrap class for headings, paragraphs, ordered lists, unordered lists, inline elements etc in a way that would be appealing to the users.</p>
+    <p>==================================================</p>
+    <span class="h1">H1</span><span class="h2">H2</span><span class="h3">H3</span>
+    <span class="h4">H4</span><span class="h5">H5</span><span class="h6">H6</span>
+    <p>
+        <u>This text will be underlined</u>
+    </p>
+    <p>
+        <s>This text will be striken through</s>
+    </p>
+    <p>
+        <mark>This text will be highlighted</mark>
+    </p>
+    <p>
+        <em>This text will be italicized</em>
+    </p>
+    <p>
+        <strong>This text will be in boold</strong>
+    </p>
+    <p>
+        This is <sub>subscript</sub> and this is <sup>superscript</sup>
+    </p>
+    <p class="text-left">Left aligned text.</p>
+    <p class="text-center">Center aligned text.</p>
+    <p class="text-right">Right aligned text.</p>
+    <p class="text-justify">
+        The text in this paragraph will be justified.
+        Bootstrap is a free, open-source and is the most popular HTML,
+        CSS, and JavaScript framework.
+    </p>
+    <p class="text-nowrap">
+        This text will not wrap and you will get a horizontal scrollbar
+        if there is no space on the screen to view.
+    </p>
+    <p class="text-lowercase">
+        All The Letters Will Be in Lowercase
+    </p>
+    <p class="text-uppercase">
+        All The Letters Will Be in Uppercase
+    </p>
+    <p class="text-capitalize">
+        First letter of every word will be capitalized
+    </p>
+    <p class="lead">
+        What is Bootstrap
+    </p>
+    <p>
+        Bootstrap is a free, open-source and is the most popular HTML,
+        CSS, and JavaScript framework
+    </p>
+
+    <abbr title="British Broadcasting Corporation">BBC</abbr>
+    <br>
+    <p>Blockquotes and Lists</p>
+    <p>==================================================</p>
+    <p>Blockquote</p>
+    <blockquote class="blockquote-reverse">
+        <p>By failing to prepare, you are preparing to fail</p>
+        <footer>
+            This famous quote is by
+            <cite title="Benjamin Franklin">
+                Benjamin Franklin
+            </cite>
+        </footer>
+    </blockquote>
+    <p>list-inline class</p>
+    <ul class="list-inline">
+        <li>India</li>
+        <li>USA</li>
+        <li>UK</li>
+        <li>Australia</li>
+        <li>Canada</li>
+    </ul>
+    <p>list-unstyled class</p>
+    <ul class="list-unstyled">
+        <li>
+            India
+            <ul class="list-unstyled">
+                <li>Andhra Pradesh</li>
+                <li>Tamil Nadu</li>
+                <li>Kerala</li>
+            </ul>
+        </li>
+        <li>
+            USA
+            <ul>
+                <li>Alabama</li>
+                <li>Alaska</li>
+                <li>Iowa</li>
+            </ul>
+        </li>
+        <li>UK</li>
+        <li>Australia</li>
+        <li>Canada</li>
+    </ul>
+
+    <p>Definition terms and description</p>
+    <dl>
+        <dt>ASP.NET</dt>
+        <dd>Framework for developing web applications</dd>
+
+        <dt>jQuery</dt>
+        <dd>JavaScript library that works across a multitude of browsers</dd>
+
+        <dt>SQL</dt>
+        <dd>The standard language for relational database management systems</dd>
+    </dl>
+
+    <p>Definition terms and description - horizontally</p>
+    <dl class="dl-horizontal">
+        <dt>ASP.NET</dt>
+        <dd>Framework for developing web applications</dd>
+
+        <dt>jQuery</dt>
+        <dd>JavaScript library that works across a multitude of browsers</dd>
+
+        <dt>SQL</dt>
+        <dd>The standard language for relational database management systems</dd>
+    </dl>
+    <br>
+    <p>Bootstrap list groups with lists and div-a combinations[list-group,list-group-item-*]</p>
+    <p>==================================================</p>
+    <ul class="list-group" style="width:150px">
+        <li class="list-group-item">India</li>
+        <li class="list-group-item">USA</li>
+        <li class="list-group-item">UK</li>
+        <li class="list-group-item">
+            Australia
+            <span class="badge">New</span>
+        </li>
+    </ul>
+    <div class="list-group" style="width:500px">
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading list-group-item-success">List Group Item 1 Heading</h4>
+            <p class="list-group-item-text">List Group Item 1 Text</p>
+        </a>
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading list-group-item-info">List Group Item 2 Heading</h4>
+            <p class="list-group-item-text">List Group Item 2 Text</p>
+        </a>
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading list-group-item-danger">List Group Item 3 Heading</h4>
+            <p class="list-group-item-text">List Group Item 3 Text</p>
+        </a>
+    </div>
+    <br>
+    <p>Bootstrap Code</p>
+    <p>==================================================</p>
+    To set a max-height of 350px and provide a y-axis scrollbar use .pre-scrollable class on < pre> tag
+<pre class="pre-scrollable">public class Program
+{
+    public static void Main()
+    {
+        Customer customer1 = new Customer()
+        {
+            ID = 101,
+            Name = "Mark",
+            Salary = 5000
+        };
+        Customer customer2 = new Customer()
+        {
+            ID = 102,
+            Name = "Pam",
+            Salary = 7000
+        };
+        Customer customer3 = new Customer()
+        {
+            ID = 104,
+            Name = "Rob",
+            Salary = 5500
+        };
+        Customer[] arrayCustomers = new Customer[2];
+        arrayCustomers[0] = customer1;
+        arrayCustomers[1] = customer2;
+       
+        List<customer> listCustomers = new List<customer>(2);
+        listCustomers.Add(customer1);
+        listCustomers.Add(customer2);
+        listCustomers.Add(customer3);
+        Customer cust = listCustomers[0];
+        Console.WriteLine("ID = {0}, Name = {1}, Salary = {2}",
+                           cust.ID, cust.Name, cust.Salary);
+        Console.WriteLine("--------------------------------");
+       Console.WriteLine("--------------------------------");
+    }
+}</pre>
+
+    <br>
+    <p>Bootstrap Table</p>
+    <p>==================================================</p>
+    To make a table responsive, place the table inside a < div> element, and apply table-responsive class on the < div> element. This will provide a horizontal scrollbar when the screen size is less than 768px (i.e on a small device). On a screen size larger than 768px you will not find any difference. Applying the table-responsive class directly on the table will not do anything useful.
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td>1</td>
+                    <td>John</td>
+                    <td>Male</td>
+                    <td>John@emailDomain.com</td>
+                </tr>
+                <tr class="danger">
+                    <td>2</td>
+                    <td>Mary</td>
+                    <td>Femlae</td>
+                    <td>mary@emailDomain.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <p>Bootstrap Button</p>
+    <p>==================================================</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="customDiv">
+                    <button class="btn btn-primary btn-lg">Button 1</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="customDiv">
+                    <button class="btn btn-danger">Button 2</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="customDiv">
+                    <button class="btn btn-success btn-block">Button 3</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="customDiv">
+                    <a href="#" class="btn btn-primary">Hyperlink</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <p>Bootstrap Glyphicons</p>
+    <p>==================================================</p>
+    Using these icons is very easy. All you have to do is include a < span>
+    element with it's class attribute set to the name of the icon.
+
+    <button class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+    </button>
+
+    <br>
+    <p>Bootstrap dropdown</p>
+    <p>==================================================</p>
+    <img src="~/ABootstrap/KudBootstrap/Images/DD.png" />
+    <div class="dropdown">
+        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+            Dropdown
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header"><strong>Header 1</strong></li>
+            <li><a href="#">Action 1</a></li>
+            <li><a href="#">Action 2</a></li>
+            <li><a href="#">Action 3</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header"><strong>Header 2</strong></li>
+            <li><a href="#">Action 1</a></li>
+            <li><a href="#">Action 2</a></li>
+            <li><a href="#">Action 3</a></li>
+        </ul>
+    </div>
+    <div class="dropup">
+        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+            Dropdown
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header"><strong>Header 1</strong></li>
+            <li><a href="#">Action 1</a></li>
+            <li><a href="#">Action 2</a></li>
+            <li><a href="#">Action 3</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header"><strong>Header 2</strong></li>
+            <li><a href="#">Action 1</a></li>
+            <li><a href="#">Action 2</a></li>
+            <li><a href="#">Action 3</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <a href="#" class="btn btn-danger">Button 1</a>
+        <a href="#" class="btn btn-default">Button 2</a>
+
+        <div class="btn-group">
+            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+                Dropdown
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action 1</a></li>
+                <li><a href="#">Action 2</a></li>
+                <li><a href="#">Action 3</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="btn-group-vertical">
+        <a href="#" class="btn btn-danger">Button 1</a>
+        <a href="#" class="btn btn-default">Button 2</a>
+
+        <div class="btn-group">
+            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+                Dropdown
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action 1</a></li>
+                <li><a href="#">Action 2</a></li>
+                <li><a href="#">Action 3</a></li>
+            </ul>
+        </div>
+    </div>
+    <p>Split Dropdown</p>
+    <div class="btn-group">
+        <button class="btn btn-primary">SQL Server</button>
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">C#</a></li>
+            <li><a href="#">ASP.NET</a></li>
+            <li><a href="#">ADO.NET</a></li>
+        </ul>
+    </div>
+
+    <br>
+    <p>Bootstrap Forms[Page responsiveness affected because of this form layout refer vid 20]</p>
+    <p>==================================================</p>
+    <p>
+        Bootstrap provides the following 3 form layouts
+        1. Vertical form (Default)
+        2. Horizontal form
+        3. Inline form<br />The followin are the classes that are used to style forms
+        form-group - Use this class on the < div>
+        element that wraps labels and form controls for optimum spacing
+        form-control - Use this class on all textual elements (< input>, < textarea>, and < select>)
+
+    </p>
+    <form>
+        <div class="form-group">
+            <label for="inputUserName">Username</label>
+            <input class="form-control" placeholder="Login Username"
+                   type="text" id="inputUserName" />
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input class="form-control" placeholder="Login Password"
+                   type="password" id="inputPassword" />
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+    </form>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="inputUserName">Username</label>
+            <input class="form-control" placeholder="Login Username"
+                   type="text" id="inputUserName" />
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input class="form-control" placeholder="Login Password"
+                   type="password" id="inputPassword" />
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+    </form>
+
+    Please note : You get the inline form layout only if the viewport is at least 768px wide. If the viewport width falls below 768px, the form layout reverts to vertical.
+    <br />
+    To create a horizontal form layout
+    1. Use the form-horizontal class on the < form>
+    element
+    2. Use the control-label class on the < label>
+    element
+    3. Use Bootstrap's grid classes to align labels and form controls
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="inputUserName" class="control-label col-sm-2">Username</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Login Username"
+                       type="text" id="inputUserName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="control-label col-sm-2">Password</label>
+            <div class="col-sm-10">
+                <input class="form-control" placeholder="Login Password"
+                       type="password" id="inputPassword" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Login</button>
+            </div>
+        </div>
+    </form>
+
+    Please note : With this example, we will only have the horizontal form layout on a large, medium, and small screen sizes. On an extra small screen size, like a mobile phone, the form reverts to a vertical layout. If you want the horizontal layout on all screen sizes, including an extra small screen size, use col-xs-* grid classes instead of col-sm-* classes.
+
+    <form>
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input class="form-control" type="text" id="inputName"
+                   placeholder="Full Name" />
+        </div>
+        <div class="form-group">
+            <label for="inputDOB">Date of Birth</label>
+            <input class="form-control" type="date" id="inputDOB" />
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input class="form-control" type="email" id="inputEmail"
+                   placeholder="Email address" />
+        </div>
+        <div class="form-group">
+            <label for="inputExperience">Work Experience</label>
+            <input class="form-control" type="number" id="inputExperience"
+                   placeholder="Total experience in years" />
+        </div>
+        <div class="form-group">
+            <label for="inputUrl">Personal Website</label>
+            <input class="form-control" type="url" id="inputUrl"
+                   placeholder="Your website address" />
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+    </form>
+
+    <div class="form-group">
+        <label for="inputDescription">Product Description</label>
+        <textarea class="form-control" id="inputDescription" rows="5"
+                  placeholder="Full Product Description"></textarea>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="option1">
+            Option 1
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="option2">
+            Option 2
+        </label>
+    </div>
+    <div class="checkbox disabled">
+        <label>
+            <input type="checkbox" value="option3" disabled>
+            Option 3
+        </label>
+    </div>
+    <select class="form-control">
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+        <option>Option 4</option>
+        <option>Option 5</option>
+    </select>
+    <select multiple class="form-control">
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+        <option>Option 4</option>
+        <option>Option 5</option>
+    </select>
+    <p>Form validation states</p>
+    <form class="form-horizontal">
+        <div class="form-group has-success">
+            <label class="col-xs-2 control-label" for="txtStrongPassword">Password</label>
+            <div class="col-xs-10">
+                <input type="password" id="txtStrongPassword" class="form-control"
+                       placeholder="Your password">
+                <span class="help-block">Strong Password</span>
+            </div>
+        </div>
+        <div class="form-group has-warning">
+            <label class="col-xs-2 control-label" for="txtWeakPassword">Password</label>
+            <div class="col-xs-10">
+                <input type="password" id="txtWeakPassword" class="form-control"
+                       placeholder="Your password">
+                <span class="help-block">Weak Password</span>
+            </div>
+        </div>
+        <div class="form-group has-error">
+            <label class="col-xs-2 control-label" for="txtAge">Age</label>
+            <div class="col-xs-10">
+                <input type="number" id="txtAge" class="form-control"
+                       placeholder="Your Age">
+                <span class="help-block">Invalid Age</span>
+            </div>
+        </div>
+    </form>
+    <p>Controlling height and width of controls</p>
+    <div class="container">
+        <form class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label for="inputName" class="control-label col-xs-1">Name</label>
+                <div class="col-xs-3">
+                    <input class="form-control input-sm" type="text" id="inputName"
+                           placeholder="Full Name" />
+                </div>
+            </div>
+
+            <div class="form-group form-group-sm">
+                <label for="inputDOB" class="control-label col-xs-1">Gender</label>
+                <div class="col-xs-3">
+                    <select class="form-control input-sm">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p>Extending Input groups with text,icon or button</p>
+    To add text before any text-based < input> element
+    1. Wrap the < input> element to which you want to add text, inside a < div>
+    element with class=input-group
+    2. Wrap the text within a < span>
+    element with class=input-group-addon and place it before the < input> element
+    <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" placeholder="Amount">
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Amount">
+        <span class="input-group-addon">.00</span>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" placeholder="Amount">
+        <span class="input-group-addon">.00</span>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-envelope"></span>
+        </span>
+        <input type="text" class="form-control" placeholder="Amount">
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" />
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Search</button>
+        </span>
+    </div>
+    <br>
+    <p>Bootstrap NAV Componetnts</p>
+    <p>==================================================</p>
+    Bootstrap nav component makes it very easy to create navigation components i.e navigation tabs and pills. The following table shows the classes that are useful for creating navigation tabs and pills.<br />
+    Class	Purpose<br />
+    nav nav-tabs =	Navigation tabs<br />
+    nav nav-pills =	Navigation pills<br />
+    nav-stacked =	Vertically stacked navigation pills<br />
+    nav-justified =	Justified pills or tabs. On screen size < 768px, the navigation links are stacked<br />
+    disabled =	Disables navigation tab or pill<br />
+    Dropdown menu can also be used with navigation tabs and pills<br />
+    Please note : The base markup for both navigation tabs and pills is in nav class.
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#">
+                <span class="glyphicon glyphicon-home"></span> Home
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-earphone"></span> Contact
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-info-sign"></span> About
+            </a>
+        </li>
+    </ul>
+    <ul class="nav nav-pills">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+
+    <ul class="nav nav-pills">
+        <li class="active">
+            <a href="#">
+                <span class="glyphicon glyphicon-home"></span> Home
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-earphone"></span> Contact
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-info-sign"></span> About
+            </a>
+        </li>
+    </ul>
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active">
+            <a href="#">
+                <span class="glyphicon glyphicon-home"></span> Home
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-earphone"></span> Contact
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-info-sign"></span> About
+            </a>
+        </li>
+    </ul>
+    <ul class="nav nav-pills nav-justified">
+        <li class="active">
+            <a href="#">
+                <span class="glyphicon glyphicon-home"></span> Home
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-earphone"></span> Contact
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-info-sign"></span> About
+            </a>
+        </li>
+    </ul>
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active">
+            <a href="#">
+                <span class="glyphicon glyphicon-home"></span> Home
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-earphone"></span> Contact
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-info-sign"></span> About
+            </a>
+        </li>
+    </ul>
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#">
+                <span class="glyphicon glyphicon-home"></span> Home
+            </a>
+        </li>
+        <li class="disabled">
+            <a href="#">
+                <span class="glyphicon glyphicon-earphone"></span> Contact
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-info-sign"></span> About
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Mission</a></li>
+                <li><a href="#">Vision</a></li>
+                <li><a href="#">Products</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <br>
+    <p>Bootstrap NAVBAR Componetnts</p>
+    <p>==================================================</p>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Products</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" />
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Subscribe</a></li>
+            </ul>
+        </div>
+    </nav>
+    <p>
+        Useful nvabar classes <br />
+        Class	Purpose<br />
+        navbar-inverse	= Modifies the look of the navbar by creating an inverted variation of it<br />
+        navbar-fixed-top	= Creates navbar that is fixed on the top of the page<br />
+        navbar-fixed-bottom	= Creates navbar that is fixed at the bottom of the page<br />
+    </p>
+    <br>
+    <p>Bootstrap Pager and Pagination</p>
+    <p>==================================================</p>
+    <ul class="pager">
+        <li class="previous"><a href="#">&larr; Previous</a></li>
+        <li class="next"><a href="#">Next &rarr;</a></li>
+    </ul>
+    <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+    <br>
+    <p>Bootstrap Panels</p>
+    <p>==================================================</p>
+    Class	Purpose<br />
+    panel	Creates a panel<br />
+    panel-default	= Applies defulat contextual styling to the panel. Other contextual state classes like panel-primary, panel-success, panel-info, panel-warning and panel-danger can also be used
+    <br />   panel-heading = Creates a panel heading<br />
+    panel-title =	For styling the title in the panel heading<br />
+    panel-body	= Creates a panel body<br />
+    panel-footer = Creates a panel footer<br />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel Heading</h3>
+        </div>
+        <div class="panel-body">
+            Panel Body Content
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mary</td>
+                        <td>Kay</td>
+                        <td>markay@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>John</td>
+                        <td>Underwood</td>
+                        <td>johnunderwood@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sam</td>
+                        <td>Macintosh</td>
+                        <td>sammacintosh@mail.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="panel-footer">
+            Panel Footer
+        </div>
+    </div>
+
+    <br>
+    <p>Bootstrap WELL - to make contnets of page stand out</p>
+    <p>==================================================</p>
+    <div class="well well-lg">
+        I am in a LARGE WELL with increased padding and radius
+    </div>
+
+    <div class="well">
+        I am in a DEFAULT WELL with default padding and radius
+    </div>
+
+    <div class="well well-sm">
+        I am in a SMALL WELL with reduced padding and radius
+    </div>
+    <div class="well well-sm">
+        <h3>Login Form</h3>
+        <hr />
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputUserName" class="control-label col-sm-2">Username</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="Login Username"
+                           type="text" id="inputUserName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-sm-2">Password</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="Login Password"
+                           type="password" id="inputPassword" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <style>
+        .well {
+            background-color: #DDDF7C;
+        }
+    </style>
+    <br>
+    <p>Bootstrap Badges,Labels,ProgressBar,Jumbotron[for Keycontents of the page]</p>
+    <p>==================================================</p>
+    <div class="well">
+        <h1>Dot Net Courses from PragimTech</h1>
+        <hr />
+        <h2>C# <span class="label label-primary">Beginner</span></h2>
+        <h3>ASP.NET <span class="label label-info">Beginner</span></h3>
+        <h4>ADO.NET <span class="label label-success">Intermediate</span></h4>
+        <h5>WCF <span class="label label-danger">Advanced</span></h5>
+        <h6>Bootstrap <span class="label label-warning">New</span></h6>
+    </div>
+    <a href="#">Inbox <span class="badge">10</span></a><br />
+    <a href="#">Sent <span class="badge">2</span></a><br />
+    <a href="#">Spam <span class="badge">3</span></a><br />
+    <a href="#">Trash <span class="badge">5</span></a>
+    <button class="btn btn-primary">Inbox <span class="badge">10</span></button>
+    <button class="btn btn-warning">Sent <span class="badge">2</span></button>
+    <button class="btn btn-success">Spam <span class="badge">3</span></button>
+    <button class="btn btn-info">Trash <span class="badge">5</span></button>
+    <div class="progress">
+        <div class="progress-bar" style="width:1%; min-width:20px">
+            1%
+        </div>
+    </div>
+    To create a stacked progress bar, simply place the individual progress bars in a single div with class progress.
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:25%;">
+            Login
+        </div>
+
+        <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:25%;">
+            Shipping
+        </div>
+
+        <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:25%;">
+            Payment
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Bootstrap Jumbotron tut</h1>
+            <p>
+                . To create a jumbotron all we need to do is create a < div> element that has the class jumbotron. You can then place any valid HTML within the jumbotron.
+            </p>
+            <p>
+                <a class="btn btn-lg btn-primary" href="http://youtube.com/kudvenkat">
+                    Get started
+                </a>
+            </p>
+        </div>
+    </div>
+    <br>
+    <p>Bootstrap Media Objects</p>
+    <p>==================================================</p>
+    Bootstrap media object is used to place media objects like images, or videos on the left or right hand side aligned with the content such as tweets, comments etc.
+    <br />
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img src="Images/tom.png" class="media-object" alt="tom" />
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">Tom <small><i>July 20, 2016</i></small></h4>
+            <p>
+                Bootstrap is a free, open-source and is the most popular HTML,
+                CSS, and JavaScript framework developed by twitter for creating
+                responsive web applications.
+            </p>
+        </div>
+    </div>
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading">Tom <small><i>July 20, 2016</i></small></h4>
+            <p>
+                Bootstrap is a free, open-source and is the most popular HTML,
+                CSS, and JavaScript framework developed by twitter for creating
+                responsive web applications.
+            </p>
+        </div>
+        <div class="media-right">
+            <a href="#">
+                <img src="Images/tom.png" class="media-object" alt="tom" />
+            </a>
+        </div>
+    </div>
+    <ul class="media-list">
+        <li class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img src="Images/tom.png" class="media-object" alt="tom">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Tom <small><i>July 20, 2016</i></small></h4>
+                <p>
+                    Bootstrap is a free, open-source and is the most popular HTML,
+                    CSS, and JavaScript framework developed by twitter for creating
+                    responsive web applications.
+                </p>
+                <!-- First Nested media object -->
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img src="Images/sam.png" class="media-object" alt="sam">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Sam <small><i>July 21, 2016</i></small></h4>
+                        <p>
+                            Bootstrap is a free, open-source and is the most popular HTML,
+                            CSS, and JavaScript framework developed by twitter for creating
+                            responsive web applications.
+                        </p>
+                        <!-- Another Nested media object -->
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img src="Images/tom.png" class="media-object" alt="tom">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Tom <small><i>July 21, 2016</i></small></h4>
+                                <p>
+                                    Bootstrap is a free, open-source and is the most popular HTML,
+                                    CSS, and JavaScript framework developed by twitter for creating
+                                    responsive web applications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img src="Images/tom.png" class="media-object" alt="tom">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Tom <small><i>July 21, 2016</i></small></h4>
+                <p>
+                    Bootstrap is a free, open-source and is the most popular HTML,
+                    CSS, and JavaScript framework developed by twitter for creating
+                    responsive web applications.
+                </p>
+            </div>
+        </li>
+    </ul>
+    <br>
+    <p>==================================================</p>
+    <p>BOOTSTRAP PLUGIN</p>
+    <p>==================================================</p>
+    <br>
+    <p>Collapsable Plugin</p>
+    <p>==================================================</p>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a class="btn btn-primary" data-toggle="collapse" href="#imageGallery">
+                        Toggle Image Gallery
+                    </a>
+                </div>
+                <div class="panel-body collapse" id="imageGallery">
+                    <div class="col-xs-4">
+                        <a href="Images/Chrysanthemum.jpg" class="thumbnail">
+                            <p>Chrysanthemum</p>
+                            <img src="Images/Chrysanthemum.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="Images/Desert.jpg" class="thumbnail">
+                            <p>Desert</p>
+                            <img src="Images/Desert.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="Images/Hydrangeas.jpg" class="thumbnail">
+                            <p>Hydrangeas</p>
+                            <img src="Images/Hydrangeas.jpg" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    Please note :
+    1. data-toggle="collapse" is required on the anchor element to show and hide the <div>
+    element that has the id as imageGallery
+
+    2. collapse class on the < div>
+    element that has the id as imageGallery, keeps the Image Gallery hidden when the page initially loads. To keep the Image Gallery expanded on the initial load, use collapse and in classes.
+    < div class="panel-body collapse in" id="imageGallery">
+
+    3. Button element can also be used as the trigger element, instead of an anchor element
+    < button class="btn btn-primary" data-toggle="collapse" data-target="#imageGallery">
+    Toggle Image Gallery
+    < /button>
+    <br />
+    <p>Using JS Collapse() function</p>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button class="btn btn-primary" id="toggleButton">
+                        Toggle Image Gallery
+                    </button>
+                    <button class="btn btn-primary" id="hideButton">
+                        Hide Image Gallery
+                    </button>
+                    <button class="btn btn-primary" id="showButton">
+                        Show Image Gallery
+                    </button>
+                </div>
+                <div class="panel-body collapse in" id="imageGalleryD">
+                    <div class="col-xs-4">
+                        <a href="Images/Chrysanthemum.jpg" class="thumbnail">
+                            <p>Chrysanthemum</p>
+                            <img src="Images/Chrysanthemum.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="Images/Desert.jpg" class="thumbnail">
+                            <p>Desert</p>
+                            <img src="Images/Desert.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="Images/Hydrangeas.jpg" class="thumbnail">
+                            <p>Hydrangeas</p>
+                            <img src="Images/Hydrangeas.jpg" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#toggleButton').click(function () {
+                $('#imageGalleryD').collapse('toggle');
+            });
+
+            $('#hideButton').click(function () {
+                $('#imageGalleryD').collapse('hide');
+            });
+
+            $('#showButton').click(function () {
+                $('#imageGalleryD').collapse('show');
+            });
+
+        });
+    </script>
+    <br>
+    <p>Accordian Plugin</p>
+    <p>==================================================</p>
+    <div id="accordion" class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="#panelBodyOne" data-toggle="collapse" data-parent="#accordion">
+                        Desert
+                    </a>
+                </h4>
+            </div>
+            <div id="panelBodyOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <img class="img-responsive" src="Images/Desert.jpg" alt="desert" />
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="#panelBodyTwo" data-toggle="collapse" data-parent="#accordion">
+                        Penguins
+                    </a>
+                </h4>
+            </div>
+            <div id="panelBodyTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <img class="img-responsive" src="Images/Penguins.jpg" alt="penguins" />
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="#panelBodyThree" data-toggle="collapse" data-parent="#accordion">
+                        Jellyfish
+                    </a>
+                </h4>
+            </div>
+            <div id="panelBodyThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <img class="img-responsive" src="Images/Jellyfish.jpg" alt="jellyfish" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+
+                <div id="accordion" class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#panelBodyOne" data-toggle="collapse"
+                                   data-parent="#accordion">
+                                    <span class="glyphicon glyphicon-menu-up"></span>
+                                    Desert
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="panelBodyOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <img class="img-responsive" src="Images/Desert.jpg"
+                                     alt="desert" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#panelBodyTwo" data-toggle="collapse"
+                                   data-parent="#accordion">
+                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                    Penguins
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="panelBodyTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <img class="img-responsive" src="Images/Penguins.jpg"
+                                     alt="penguins" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#panelBodyThree" data-toggle="collapse"
+                                   data-parent="#accordion">
+                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                    Jellyfish
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="panelBodyThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <img class="img-responsive" src="Images/Jellyfish.jpg"
+                                     alt="jellyfish" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.collapse').on('shown.bs.collapse', function () {
+                $(this).parent().find('.glyphicon-menu-down')
+                                .removeClass('glyphicon-menu-down')
+                                .addClass('glyphicon-menu-up');
+            }).on('hidden.bs.collapse', function () {
+                $(this).parent().find(".glyphicon-menu-up")
+                                .removeClass("glyphicon-menu-up")
+                                .addClass("glyphicon-menu-down");
+            });
+        });
+    </script>
+    <br>
+    <p>Bootstrap Modal Popup</p>
+    <p>==================================================</p>
+    <div class="modal fade" tabindex="-1" id="loginModal"
+         data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputUserName">Username</label>
+                            <input class="form-control" placeholder="Login Username"
+                                   type="text" id="inputUserName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Password</label>
+                            <input class="form-control" placeholder="Login Password"
+                                   type="password" id="inputPassword" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="button" class="btn btn-primary"
+                            data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    Attributes and classes to customize the behaviour of the modal<br />
+    Attributes / Class	Description<br />
+    data-keyboard="false"	== Prevents modal closing on escape<br />
+    data-backdrop="static"	== Prevents modal closing when clicked outside the modal<br />
+    fade class	== Animates modal<br />
+    modal-sm class	== Creates a small modal. Add this class on the div element that has the modal-dialog class<br />
+    modal-lg class	== Creates a large modal. Add this class on the div element that has the modal-dialog class<br />
+    <br />
+    <BR />
+    Using JS Plugins<br />
+    we have removed all the data attributes (data-toggle, data-target and data-dismiss). Instead, we are using modal('show') and modal('hide') methods to show and hide the login modal.
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <button id="btnShowModal" type="button"
+                        class="btn btn-sm btn-default pull-right">
+                    Login
+                </button>
+
+                <div class="modal fade" tabindex="-1" id="loginModal"
+                     data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title">Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="inputUserName">Username</label>
+                                        <input class="form-control" type="text"
+                                               placeholder="Login Username" id="inputUserName" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword">Password</label>
+                                        <input class="form-control" placeholder="Login Password"
+                                               type="password" id="inputPassword" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="button" id="btnHideModal" class="btn btn-primary">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnShowModal").click(function () {
+                $("#loginModal").modal('show');
+            });
+
+            $("#btnHideModal").click(function () {
+                $("#loginModal").modal('hide');
+            });
+        });
+    </script>
+    <br>
+    <p>ToolTip </p>
+    <p>==================================================</p>
+    To create a tooltip
+    1. Include title attribute on the element. The title attribute value will be displayed as the tooltip.
+    2. Also, include data-toggle="tooltip" on the element
+    3. Finally, initialize the tooltip, using the following one line of jQuery code
+    $('[data-toggle="tooltip"]').tooltip();
+
+    <button class="btn btn-primary" title="Bootstrap tooltip"
+            data-toggle="tooltip">
+        Button
+    </button>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <br />
+    Options to customize tooltip behaviour. These options can be specified using data attributes or Javascript.<br />
+    Option	Description<br />
+    placement	== Placement can be top, bottom, left or right. Default is top<br />
+    title	== Title for the tooltip<br />
+    animation	== Animates the tooltip. Value can be true or false. Default is true<br />
+    delay	== Time delay for showing and hiding the tooltip. Value can be number in milli-seconds or an object<br />
+    html	== Specifies the HTML for the tooltip. Value can be true or false. Default is false<br />
+    <button class="btn btn-primary" data-toggle="tooltip">
+        Button
+    </button>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                title: '<h3>Help</h3><p>Click to submit the page</p>',
+                placement: 'right',
+                animation: true,
+                delay: { show: 500, hide: 800 },
+                html: true
+            });
+        });
+        //can also be as below by manual trigger
+        //$(document).ready(function () {
+        //    $('#txtName').tooltip({
+        //        trigger: 'manual'
+        //    });
+
+        //    $('#infoIcon').click(function () {
+        //        $('#txtName').tooltip('toggle');
+        //    });
+        //});
+
+        $('#infoIcon').hover(function () {
+            $('#txtName').tooltip('toggle');
+        });
+
+
+    </script>
+    The trigger option specifies how the tooltip should be triggered. The following are the values that can be specified for the trigger option. Multiple triggers can be specified by separating them with a space. manual cannot be combined with any other trigger.
+    Tooltip trigger option values =
+    hover,
+    focus,
+    click,
+    manual<br />
+    <button class="btn btn-primary" id="btnPopover" title="Popover Title"
+            data-content="Popover content. Popover content. Popover content."
+            data-toggle="popover">
+        Popover Example
+    </button>
+    <script>
+        $(document).ready(function () {
+            $('#btnPopover').popover();
+        });
+    </script>
+    <button class="btn btn-primary" id="btnPopover" title="Popover Title"
+            data-content="Popover content. Popover content. Popover content."
+            data-toggle="popover"
+            data-trigger="hover">
+        Popover Example
+    </button>
+    As you can see from the table below, majority of the options, methods and events of the popover plugin are very similar to tooltip plugin.
+    popover options	tooltip options
+    placement	placement
+    title	title
+    trigger	trigger
+    animation	animation
+    delay	delay
+    html	html
+    popover methods	tooltip methods
+    popover('show')	tooltip('show')
+    popover('hide')	tooltip('hide')
+    popover('toggle')	tooltip('toggle')
+    popover events	tooltip events
+    show.bs.popover	show.bs.tooltip
+    shown.bs.popover	shown.bs.tooltip
+    hide.bs.popover	hide.bs.tooltip
+    hidden.bs.popover	hidden.bs.tooltip
+    <button id="btnSubmit" class="btn btn-primary">
+        Submit
+    </button>
+
+    <br /><br />
+
+    <div id="myAlert" class="alert alert-danger collapse">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Error!</strong> There is a problem submitting your form
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#btnSubmit').click(function () {
+                $('#myAlert').show('fade');
+            });
+
+        });
+    </script>
+    <br>
+    <p>Corousel </p>
+    <p>==================================================</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div id="imageCarousel" class="carousel slide" data-interval="2000"
+                     data-ride="carousel" data-pause="hover" data-wrap="true">
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#imageCarousel" data-slide-to="1"></li>
+                        <li data-target="#imageCarousel" data-slide-to="2"></li>
+                        <li data-target="#imageCarousel" data-slide-to="3"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="Images/Desert.jpg" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h3>Desert</h3>
+                                <p>Desert Image Description</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Images/Jellyfish.jpg" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h3>Jellyfish</h3>
+                                <p>Jellyfish Image Description</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Images/Lighthouse.jpg" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h3>Lighthouse</h3>
+                                <p>Lighthouse Image Description</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Images/Penguins.jpg" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h3>Penguins</h3>
+                                <p>Penguins Image Description</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

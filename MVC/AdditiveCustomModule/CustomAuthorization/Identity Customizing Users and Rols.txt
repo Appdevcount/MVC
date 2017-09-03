@@ -1,0 +1,488 @@
+﻿================================================================================================================================================================
+https://www.codeproject.com/Articles/790720/ASP-NET-Identity-Customizing-Users-and-Roles
+
+Extending the Default ApplicationUser Class:
+============================================
+Hide   Shrink    Copy Code
+class ApplicationUser : IdentityUser 
+{
+     async Task<ClaimsIdentity> 
+        GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+    {
+        var userIdentity = await manager
+            .CreateIdentityAsync(this, 
+                DefaultAuthenticationTypes.ApplicationCookie);
+        return userIdentity;
+    }
+ 
+     string Address { get; set; }
+     string City { get; set; }
+     string State { get; set; }
+ 
+    // Use a sensible display name for views:
+    [Display(Name = "Postal Code")]
+     string PostalCode { get; set; }
+ 
+    // Concatenate the address info for display in tables and such:
+     string DisplayAddress
+    {
+        get
+        {
+            string dspAddress = 
+                string.IsNullOrWhiteSpace(this.Address) ? "" : this.Address;
+            string dspCity = 
+                string.IsNullOrWhiteSpace(this.City) ? "" : this.City;
+            string dspState = 
+                string.IsNullOrWhiteSpace(this.State) ? "" : this.State;
+            string dspPostalCode = 
+                string.IsNullOrWhiteSpace(this.PostalCode) ? "" : this.PostalCode;
+ 
+            return string
+                .Format("{0} {1} {2} {3}", dspAddress, dspCity, dspState, dspPostalCode);
+        }
+    }
+}
+Update the RegisterViewModel to Include Address Info:
+====================================================
+class RegisterViewModel 
+{
+    [Required]
+    [EmailAddress]
+    [Display(Name = "Email")]
+     string Email { get; set; }
+ 
+    [Required]
+    [StringLength(100, ErrorMessage = 
+        "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+    [DataType(DataType.Password)]
+    [Display(Name = "Password")]
+     string Password { get; set; }
+ 
+    [DataType(DataType.Password)]
+    [Display(Name = "Confirm password")]
+    [Compare("Password", ErrorMessage = 
+        "The password and confirmation password do not match.")]
+     string ConfirmPassword { get; set; }
+ 
+    // Add the new address properties:
+     string Address { get; set; }
+     string City { get; set; }
+     string State { get; set; }
+ 
+    // Use a sensible display name for views:
+    [Display(Name = "Postal Code")]
+     string PostalCode { get; set; }
+}
+Update the Register Method on AccountController:
+===============================================
+[HttpPost]
+[AllowAnonymous]
+[ValidateAntiForgeryToken]
+public async Task<ActionResult> Register(RegisterViewModel model)
+{
+    if (ModelState.IsValid)
+    {
+        var user = new ApplicationUser 
+        { 
+            UserName = model.Email, 
+            Email = model.Email 
+        };
+  
+        // Add the Address properties:
+        user.Address = model.Address;
+        user.City = model.City;
+        user.State = model.State;
+        user.PostalCode = model.PostalCode;
+ 
+        var result = await UserManager.CreateAsync(user, model.Password);
+        if (result.Succeeded)
+        {
+            var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            var callbackUrl = Url.Action("ConfirmEmail", "Account", 
+                new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            await UserManager.SendEmailAsync(user.Id, 
+                "Confirm your account", 
+                "Please confirm your account by clicking this link: <a href=\"" 
+                + callbackUrl + "\">link</a>");
+            ViewBag.Link = callbackUrl;
+            return View("DisplayEmail");
+        }
+        AddErrors(result);
+    }
+  
+    // If we got this far, something failed, redisplay form
+    return View(model);
+}
+Update the EditUserViewModel:
+============================
+public class EditUserViewModel
+{
+    public string Id { get; set; }
+  
+    [Required(AllowEmptyStrings = false)]
+    [Display(Name = "Email")]
+    [EmailAddress]
+    public string Email { get; set; }
+  
+    // Add the Address Info:
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string State { get; set; }
+  
+    // Use a sensible display name for views:
+    [Display(Name = "Postal Code")]
+    public string PostalCode { get; set; }
+  
+    public IEnumerable<SelectListItem> RolesList { get; set; }
+}
+Modified Create method on UserAdminController:
+======================================================
+[HttpPost]
+public async Task<ActionResult> Create(RegisterViewModel userViewModel, params string[] selectedRoles)
+{
+    if (ModelState.IsValid)
+    {
+        var user = new ApplicationUser 
+        { 
+            UserName = userViewModel.Email, Email = 
+            userViewModel.Email, 
+            // Add the Address Info:
+            Address = userViewModel.Address,
+            City = userViewModel.City,
+            State = userViewModel.State,
+            PostalCode = userViewModel.PostalCode
+        };
+  
+        // Add the Address Info:
+        user.Address = userViewModel.Address;
+        user.City = userViewModel.City;
+        user.State = userViewModel.State;
+        user.PostalCode = userViewModel.PostalCode;
+  
+        // Then create:
+        var adminresult = await UserManager.CreateAsync(user, userViewModel.Password);
+  
+        //Add User to the selected Roles 
+        if (adminresult.Succeeded)
+        {
+            if (selectedRoles != null)
+            {
+                var result = await UserManager.AddToRolesAsync(user.Id, selectedRoles);
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", result.Errors.First());
+                    ViewBag.RoleId = new SelectList(await RoleManager.Roles.ToListAsync(), "Name", "Name");
+                    return View();
+                }
+            }
+        }
+        else
+        {
+            ModelState.AddModelError("", adminresult.Errors.First());
+            ViewBag.RoleId = new SelectList(RoleManager.Roles, "Name", "Name");
+            return View();
+        }
+        return RedirectToAction("Index");
+    }
+    ViewBag.RoleId = new SelectList(RoleManager.Roles, "Name", "Name");
+    return View();
+}
+Modified [Get] Implementation for UserAdmin Controller Edit Method:
+===================================================================
+public async Task<ActionResult> Edit(string id)
+{
+    if (id == null)
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+    }
+    var user = await UserManager.FindByIdAsync(id);
+    if (user == null)
+    {
+        return HttpNotFound();
+    }
+  
+    var userRoles = await UserManager.GetRolesAsync(user.Id);
+  
+    return View(new EditUserViewModel()
+    {
+        Id = user.Id,
+        Email = user.Email,
+        // Include the Addresss info:
+        Address = user.Address,
+        City = user.City,
+        State = user.State,
+        PostalCode = user.PostalCode,
+        RolesList = RoleManager.Roles.ToList().Select(x => new SelectListItem()
+        {
+            Selected = userRoles.Contains(x.Name),
+            Text = x.Name,
+            Value = x.Name
+        })
+    });
+}
+Modified Edit Method [Post] on UserAdminController:
+==================================================
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<ActionResult> Edit([Bind(Include = 
+    "Email,Id,Address,City,State,PostalCode")] 
+    EditUserViewModel editUser, params string[] selectedRole)
+{
+    if (ModelState.IsValid)
+    {
+        var user = await UserManager.FindByIdAsync(editUser.Id);
+        if (user == null)
+        {
+            return HttpNotFound();
+        }
+ 
+        user.UserName = editUser.Email;
+        user.Email = editUser.Email;
+        user.Address = editUser.Address;
+        user.City = editUser.City;
+        user.State = editUser.State;
+        user.PostalCode = editUser.PostalCode;
+  
+        var userRoles = await UserManager.GetRolesAsync(user.Id);
+        selectedRole = selectedRole ?? new string[] { };
+        var result = await UserManager.AddToRolesAsync(user.Id, 
+            selectedRole.Except(userRoles).ToArray<string>());
+  
+        if (!result.Succeeded)
+        {
+            ModelState.AddModelError("", result.Errors.First());
+            return View();
+        }
+        result = await UserManager.RemoveFromRolesAsync(user.Id, 
+            userRoles.Except(selectedRole).ToArray<string>());
+        if (!result.Succeeded)
+        {
+            ModelState.AddModelError("", result.Errors.First());
+            return View();
+        }
+        return RedirectToAction("Index");
+    }
+    ModelState.AddModelError("", "Something failed.");
+    return View();
+}
+Auto generate Admin user on DB intialization
+==============================================
+The ApplicationDbInitializer Class in IdentityConfig.cs
+Hide   Shrink    Copy Code
+public class ApplicationDbInitializer 
+    : DropCreateDatabaseIfModelChanges<ApplicationDbContext> 
+{
+    protected override void Seed(ApplicationDbContext context) {
+        InitializeIdentityForEF(context);
+        base.Seed(context);
+    }
+  
+    //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
+    public static void InitializeIdentityForEF(ApplicationDbContext db) {
+        var userManager = 
+            HttpContext.Current.GetOwinContext()
+                .GetUserManager<ApplicationUserManager>();
+        var roleManager = 
+            HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
+        const string name = "admin@example.com";
+        const string password = "Admin@123456";
+        const string roleName = "Admin";
+  
+        //Create Role Admin if it does not exist
+        var role = roleManager.FindByName(roleName);
+        if (role == null) {
+            role = new IdentityRole(roleName);
+            var roleresult = roleManager.Create(role);
+        }
+  
+        var user = userManager.FindByName(name);
+        if (user == null) {
+            user = new ApplicationUser { UserName = name, Email = name };
+            var result = userManager.Create(user, password);
+            result = userManager.SetLockoutEnabled(user.Id, false);
+        }
+  
+        // Add user admin to Role Admin if not already added
+        var rolesForUser = userManager.GetRoles(user.Id);
+        if (!rolesForUser.Contains(role.Name)) {
+            var result = userManager.AddToRole(user.Id, role.Name);
+        }
+    }
+}
+
+Roles
+=====
+=====
+Role Creation
+=============
+public async Task<ActionResult> Create(RoleViewModel roleViewModel)
+{
+    if (ModelState.IsValid)
+    {
+        // Initialize ApplicationRole instead of IdentityRole:
+        var role = new ApplicationRole(roleViewModel.Name);
+        var roleresult = await RoleManager.CreateAsync(role);
+        if (!roleresult.Succeeded)
+        {
+            ModelState.AddModelError("", roleresult.Errors.First());
+            return View();
+        }
+        return RedirectToAction("Index");
+    }
+    return View();
+}
+[HttpPost]
+public async Task<ActionResult> Create(RoleViewModel roleViewModel)
+{
+    if (ModelState.IsValid)
+    {
+        var role = new ApplicationRole(roleViewModel.Name);
+  
+        // Save the new Description property:
+        role.Description = roleViewModel.Description;
+        var roleresult = await RoleManager.CreateAsync(role);
+        if (!roleresult.Succeeded)
+        {
+            ModelState.AddModelError("", roleresult.Errors.First());
+            return View();
+        }
+        return RedirectToAction("Index");
+    }
+    return View();
+}
+Role Edit
+==========
+public async Task<ActionResult> Edit(string id)
+{
+    if (id == null)
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+    }
+    var role = await RoleManager.FindByIdAsync(id);
+    if (role == null)
+    {
+        return HttpNotFound();
+    }
+    RoleViewModel roleModel = new RoleViewModel 
+    { 
+        Id = role.Id, 
+        Name = role.Name 
+    };
+  
+    // Update the new Description property for the ViewModel:
+    roleModel.Description = role.Description;
+    return View(roleModel);
+}
+  
+  
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<ActionResult> Edit([Bind(
+    Include = "Name,Id,Description")] 
+    RoleViewModel roleModel)
+{
+    if (ModelState.IsValid)
+    {
+        var role = await RoleManager.FindByIdAsync(roleModel.Id);
+        role.Name = roleModel.Name;
+  
+        // Update the new Description property:
+        role.Description = roleModel.Description;
+        await RoleManager.UpdateAsync(role);
+        return RedirectToAction("Index");
+    }
+    return View();
+}
+Initialize ApplicationRole in Database Set-Up:
+============================================
+public static void InitializeIdentityForEF(ApplicationDbContext db) {
+    var userManager = 
+        HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var roleManager = 
+        HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
+    const string name = "admin@example.com";
+    const string password = "Admin@123456";
+    const string roleName = "Admin";
+  
+    //Create Role Admin if it does not exist
+    var role = roleManager.FindByName(roleName);
+    if (role == null) {
+        role = new ApplicationRole(roleName);
+        var roleresult = roleManager.Create(role);
+    }
+   
+    var user = userManager.FindByName(name);
+    if (user == null) {
+        user = new ApplicationUser { UserName = name, Email = name };
+        var result = userManager.Create(user, password);
+        result = userManager.SetLockoutEnabled(user.Id, false);
+    }
+  
+    // Add user admin to Role Admin if not already added
+    var rolesForUser = userManager.GetRoles(user.Id);
+    if (!rolesForUser.Contains(role.Name)) {
+        var result = userManager.AddToRole(user.Id, role.Name);
+    }
+}
+
+
+================================================================
+
+Good MSDN Example  - https://www.asp.net/web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
+Gives Page/Folder/Role based restriction
+
+
+AddUserAndRole()
+    {
+      // Access the application context and create result variables.
+      Models.ApplicationDbContext context = new ApplicationDbContext();
+      IdentityResult IdRoleResult;
+      IdentityResult IdUserResult;
+
+      // Create a RoleStore object by using the ApplicationDbContext object. 
+      // The RoleStore is only allowed to contain IdentityRole objects.
+      var roleStore = new RoleStore<IdentityRole>(context);
+
+      // Create a RoleManager object that is only allowed to contain IdentityRole objects.
+      // When creating the RoleManager object, you pass in (as a parameter) a new RoleStore object. 
+      var roleMgr = new RoleManager<IdentityRole>(roleStore);
+
+      // Then, you create the "canEdit" role if it doesn't already exist.
+      if (!roleMgr.RoleExists("canEdit"))
+      {
+        IdRoleResult = roleMgr.Create(new IdentityRole { Name = "canEdit" });
+      }
+
+      // Create a UserManager object based on the UserStore object and the ApplicationDbContext  
+      // object. Note that you can create new objects and use them as parameters in
+      // a single line of code, rather than using multiple lines of code, as you did
+      // for the RoleManager object.
+      var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+      var appUser = new ApplicationUser
+      {
+        UserName = "canEditUser@wingtiptoys.com",
+        Email = "canEditUser@wingtiptoys.com"
+      };
+      IdUserResult = userMgr.Create(appUser, "Pa$$word1");
+
+      // If the new "canEdit" user was successfully created, 
+      // add the "canEdit" user to the "canEdit" role. 
+      if (!userMgr.IsInRole(userMgr.FindByEmail("canEditUser@wingtiptoys.com").Id, "canEdit"))
+      {
+        IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("canEditUser@wingtiptoys.com").Id, "canEdit");
+      }
+    }
+
+Folder based Configuration for Page access in aspx
+=================================================
+	<?xml version="1.0"?>
+<configuration>
+  <system.web>
+    <authorization>
+      <allow roles="canEdit"/>
+      <deny users="*"/>
+    </authorization>
+  </system.web>
+</configuration>
+
+

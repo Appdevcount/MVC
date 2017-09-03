@@ -1,0 +1,46 @@
+﻿@model MVC.Models.CheckModelpoc
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CheckboxListpoc</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @*<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+</head>
+<body>
+    @using (Html.BeginForm()) 
+    {
+        
+        <div class="form-horizontal">
+            <h4>CheckModelpoc</h4>
+            <hr />
+
+            <input name="StaticMultiBoxes" id="Static1" type="checkbox" value="One"  /> <label for="Static1"> One</label><br />
+            <input name="StaticMultiBoxes" id="Static2" type="checkbox" value="Five"  /> <label for="Static2"> Five</label><br />
+            <input name="StaticMultiBoxes" id="Static3" type="checkbox" value="Six"  /> <label for="Static3"> Six</label><br />
+
+            @*@Html.CheckBoxFor()*@
+
+            @Html.ValidationMessage("StaticMultiBoxes")
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+</body>
+</html>

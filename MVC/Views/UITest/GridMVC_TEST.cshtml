@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC.DAL.GridMVC.ProfileDet>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "GridMVC";
+}
+
+<h2>GridMVC</h2>
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Scripts/gridmvc.min.js"></script>
+<div>
+    @Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.ProfileID).Titled("ProfileIDGridMVC").Filterable(true);
+    columns.Add(c => c.ItemName).Titled("ItemNameGridMVC").Filterable(true);
+    columns.Add().Sanitized(false).SetWidth(20).Encoded(false).RenderValueAs(a => Html.ActionLink("", "", new { id = a.ProfileID }));
+}).WithPaging(10).Sortable(true);
+</div>
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>*@

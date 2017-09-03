@@ -1,0 +1,1273 @@
+﻿<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<br />
+Jumbotron and Rows-Cols with Container
+<br />===================================<br>
+<div class="jumbotron text-center">
+    <h3>My First Bootstrap Page</h3>
+    <p>Resize this responsive page to see the effect!</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>Column 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>Column 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>Column 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        </div>
+    </div>
+</div>
+
+<br />
+Bootstrap Grid Class based on screen size
+<br />===================================<br>
+<div class="row">
+    <div class="col-xs-4">.col-xs-4</div>
+    <div class="col-sm-4">.col-sm-4</div>
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-lg-4">.col-lg-4</div>
+</div>
+
+<br />
+Text Mark
+<br />===================================<br>
+<div class="container">
+    <mark> Highlight Text</mark>
+</div>
+
+<br />
+
+Contextual Colors
+<br />===================================<br>
+
+<div class="container">
+    <p class="text-muted">This text is muted.</p>
+    <p class="text-primary">This text is important.</p>
+    <p class="text-success">This text indicates success.</p>
+    <p class="text-info">This text represents some information.</p>
+    <p class="text-warning">This text represents a warning.</p>
+    <p class="text-danger">This text represents danger.</p>
+</div>
+
+<br />
+Tables
+<br />===================================<br>
+<table class="table table-striped table-bordered table-hover table-responsive table-condensed">
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+Images
+<br />===================================<br>
+<img src="http://www.w3schools.com/bootstrap/newyork.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="236">
+<img src="http://www.w3schools.com/bootstrap/newyork.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
+<img src="http://www.w3schools.com/bootstrap/newyork.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+<img src="http://www.w3schools.com/bootstrap/newyork.jpg" class="img-responsive" alt="Cinque Terre" width="304" height="236">
+
+
+<br />
+Wells
+<br />===================================<br>
+<div class="well well-sm">Small Well</div>
+<div class="well well-lg">Large Well</div>
+<div class="well ">Basic Well</div>
+
+<br />
+Alerts
+<br />===================================<br>
+<div class="alert alert-success">
+    <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+<div class="alert alert-info">
+    <strong>Info!</strong> Indicates a neutral informative change or action.
+</div>
+<div class="alert alert-warning">
+    <strong>Warning!</strong> Indicates a warning that might need attention.
+</div>
+<div class="alert alert-danger">
+    <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+</div>
+
+<div class="container">
+    <h2>Close Alerts via Data-Attributes</h2>
+    <p>The data-dismiss="alert" is used to close the alert box.</p>
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+    </div>
+</div>
+
+<br />
+Aria Attribute
+<br />===================================<br>
+The aria-* attribute and &times; explanation ..
+
+To help improve accessibility for people using screen readers, you should include the aria-label="close" attribute, when creating a close button.
+
+&times; (×) is an HTML entity that is the preferred icon for close buttons, rather than the letter "x".
+
+
+<br />
+Buttons
+<br />===================================<br>
+<button type="button" class="btn btn-default btn-lg">Default</button>
+<button type="button" class="btn btn-primary btn-sm">Primary</button>
+<button type="button" class="btn btn-success btn-xs">Success</button>
+<button type="button" class="btn btn-info btn-block">Info</button>
+<button type="button" class="btn btn-warning ">Warning</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-link">Link</button>
+<br />
+<div class="btn-group">
+    <button type="button" class="btn btn-primary">Apple</button>
+    <button type="button" class="btn btn-primary">Samsung</button>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Sony <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Tablet</a></li>
+            <li><a href="#">Smartphone</a></li>
+        </ul>
+    </div>
+</div>
+<br />
+<div class="btn-group-vertical">
+    <button type="button" class="btn btn-primary">Apple</button>
+    <button type="button" class="btn btn-primary">Samsung</button>
+    <button type="button" class="btn btn-primary">Sony</button>
+</div>
+<br />
+<div class="btn-group-justified">
+    <button type="button" class="btn btn-primary">Apple</button>
+    <button type="button" class="btn btn-primary">Samsung</button>
+    <button type="button" class="btn btn-primary">Sony</button>
+</div>
+
+<br />
+Glyphicon
+<br />===================================<br>
+
+<p>Envelope icon: <span class="glyphicon glyphicon-envelope"></span></p>
+<p>Envelope icon: <span class="glyphicon glyphicon-download"></span></p>
+<p>Envelope icon: <span class="glyphicon glyphicon-barcode"></span></p>
+<p>Envelope icon: <span class="glyphicon glyphicon-camera"></span></p>
+<p>Envelope icon: <span class="glyphicon glyphicon-collapse-down"></span></p>
+
+<br />
+Badges and Labels and ProgressBar
+<br />===================================<br>
+<a href="#">News <span class="badge">5</span></a><br>
+<a href="#">Comments <span class="badge">10</span></a><br>
+<a href="#">Updates <span class="badge">2</span></a>
+
+<button type="button" class="btn btn-primary">Primary <span class="badge">7</span></button>
+
+<span class="label label-default">Default Label</span>
+<span class="label label-primary">Primary Label</span>
+<span class="label label-success">Success Label</span>
+<span class="label label-info">Info Label</span>
+<span class="label label-warning">Warning Label</span>
+<span class="label label-danger">Danger Label</span>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+        40% Complete (success)
+    </div>
+</div>
+
+<br />
+Panels
+<br />===================================<br>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Panel with panel-default class</div>
+    <div class="panel-body">Panel Content</div>
+</div>
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">Panel with panel-default class</div>
+        <div class="panel-body">Panel Content</div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Panel with panel-primary class</div>
+        <div class="panel-body">Panel Content</div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">Panel with panel-success class</div>
+        <div class="panel-body">Panel Content</div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">Panel with panel-info class</div>
+        <div class="panel-body">Panel Content</div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">Panel with panel-warning class</div>
+        <div class="panel-body">Panel Content</div>
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">Panel with panel-danger class</div>
+        <div class="panel-body">Panel Content</div>
+    </div>
+</div>
+
+<br />
+Dropdown
+<br />===================================<br>
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+        Dropdown Example
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+    </ul>
+</div>
+
+<br />
+Collapse and Accordian
+<br />===================================<br>
+The .collapse class indicates a collapsible element (a < div>
+    in our example); this is the content that will be shown or hidden with a click of a button.
+
+    To control (show/hide) the collapsible content, add the data-toggle="collapse" attribute to an < a>
+        or a < button>
+            element. Then add the data-target="#id" attribute to connect the button with the collapsible content
+    (< div id="demo"> ).
+
+                Note: For < a> elements, you can use the href attribute instead of the data-target attribute:
+Also require reference Bootstrap.js file few functionalities < script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">< /script>
+
+<br />
+
+
+<div class="container">
+    <h2>Simple Collapsible</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+    <div id="demo" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+</div>
+
+
+<div class="container">
+    <h2>Collapsible Panel</h2>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">Panel Body</div>
+                <div class="panel-footer">Panel Footer</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <h2>Collapsible List Group</h2>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">Collapsible list group</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <ul class="list-group">
+                    <li class="list-group-item">One</li>
+                    <li class="list-group-item">Two</li>
+                    <li class="list-group-item">Three</li>
+                </ul>
+                <div class="panel-footer">Footer</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <h2>Accordion Example</h2>
+    <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#coll1" style="text-decoration:none">Collapsible Group 1 without underline</a>
+                </h4>
+            </div>
+            <div id="coll1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <h2>Accordion Example</h2>
+    <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target="#collpse1">
+                    Coll G1
+                    @*<button type="button" data-toggle="collapse" data-parent="#accordion" data-target="#collpse1">Coll G1</button>*@
+                </h4>
+            </div>
+            <div id="collpse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <button type="button" data-toggle="collapse" data-parent="#accordion" data-target="#collpse2">Coll G2</button>
+
+                </h4>
+            </div>
+            <div id="collpse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <button type="button" data-toggle="collapse" data-parent="#accordion" data-target="#collpse3">Coll G3</button>
+
+                </h4>
+            </div>
+            <div id="collpse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+Tabs and Pills
+<br />===================================<br>
+
+
+<div class="container">
+    <h2>Dynamic Tabs</h2>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+        <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+        <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+        <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Menu 4
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Submenu 1-1</a></li>
+                <li><a href="#">Submenu 1-2</a></li>
+                <li><a href="#">Submenu 1-3</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <h3>Menu 3</h3>
+            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+    </div>
+</div>
+
+<br />
+NavBar<br />
+============================================
+<br />
+
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Page 2</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Collapsible Navbar</h3>
+    <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
+    <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+</div>
+
+
+
+<br />
+Forms
+<br />================================================
+<br />
+
+<div class="container">
+    <h2>Inline form</h2>
+    <p>Make the viewport larger than 768px wide to see that all of the form elements are inline, left aligned, and the labels are alongside.</p>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+
+<br />
+Inputs
+<br />===================================<br>
+
+<div class="form-group">
+    <label for="comment">Comment:</label>
+    <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
+
+<div class="checkbox">
+    <label><input type="checkbox" value="">Option 1</label>
+</div>
+<div class="checkbox-inline">
+    <label><input type="checkbox" value="">Option 2</label>
+</div>
+<div class="checkbox-inline disabled">
+    <label><input type="checkbox" value="" disabled>Option 3</label>
+</div>
+
+
+<label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+<label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+<label class="radio-inline"><input type="radio" name="optradio">Option 3</label>
+
+<div class="form-group">
+    <label for="sel1">Select list:</label>
+    <select class="form-control" id="sel1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+</div>
+
+<div class="container">
+    <h2>Inline form: control states</h2>
+    <form class="form-inline">
+        <div class="form-group has-success has-feedback">
+            <label for="inputSuccess2">Input with success</label>
+            <input type="text" class="form-control" id="inputSuccess2">
+            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+        </div>
+    </form>
+</div>
+
+<br />
+Input Sizing in Forms
+
+<br />===================================<br>
+Set the heights of input elements using classes like .input-lg and .input-sm.
+
+Set the widths of elements using grid column classes like .col-lg-*and .col-sm-*.
+<br />
+
+<form>
+    <div class="form-group">
+        <label for="inputdefault">Default input</label>
+        <input class="form-control" id="inputdefault" type="text">
+    </div>
+    <div class="form-group">
+        <label for="inputlg">input-lg</label>
+        <input class="form-control input-lg" id="inputlg" type="text">
+    </div>
+    <div class="form-group">
+        <label for="inputsm">input-sm</label>
+        <input class="form-control input-sm" id="inputsm" type="text">
+    </div>
+</form>
+
+
+<form class="form-horizontal">
+    <div class="form-group form-group-lg">
+        <label class="col-sm-2 control-label" for="lg">form-group-lg</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="lg">
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label class="col-sm-2 control-label" for="sm">form-group-sm</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="sm">
+        </div>
+    </div>
+</form>
+
+<div class="col-xs-2">
+    <label for="ex1">col-xs-2</label>
+    <input class="form-control" id="ex1" type="text">
+</div>
+<div class="col-xs-3">
+    <label for="ex2">col-xs-3</label>
+    <input class="form-control" id="ex2" type="text">
+</div>
+<div class="col-xs-4">
+    <label for="ex3">col-xs-4</label>
+    <input class="form-control" id="ex3" type="text">
+</div>
+
+<br /><br /><br /><br /><br /><br /><br />
+Media Object Alignment for Blogs and tweets
+<br />==========================================<br>
+
+
+<!-- Left-aligned -->
+<div class="media">
+    <div class="media-left">
+        <img src="img_avatar1.png" class="media-object" style="width:60px">
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">John Doe</h4>
+        <p>Lorem ipsum...</p>
+    </div>
+</div>
+
+<!-- Right-aligned -->
+<div class="media">
+    <div class="media-body">
+        <h4 class="media-heading">John Doe</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="media-right">
+        <img src="img_avatar1.png" class="media-object" style="width:60px">
+    </div>
+</div>
+
+<br />
+Corousel - Image Slide Plugin
+<br />===================================<br>
+
+
+The outermost < div>:
+
+    Carousels require the use of an id (in this case id="myCarousel") for carousel controls to function properly.
+
+    The class="carousel" specifies that this < div>
+        contains a carousel.
+
+        The .slide class adds a CSS transition and animation effect, which makes the items slide when showing a new item. Omit this class if you do not want this effect.
+
+        The data-ride="carousel" attribute tells Bootstrap to begin animating the carousel immediately when the page loads.
+
+        The "Indicators" part:
+
+        The indicators are the little dots at the bottom of each slide (which indicates how many slides there is in the carousel, and which slide the user are currently viewing).
+
+        The indicators are specified in an ordered list with class .carousel-indicators.
+
+        The data-target attribute points to the id of the carousel.
+
+        The data-slide-to attribute specifies which slide to go to, when clicking on the specific dot.
+
+        The "Wrapper for slides" part:
+
+        The slides are specified in a < div>
+            with class .carousel-inner.
+
+            The content of each slide is defined in a < div>
+                with class .item. This can be text or images.
+
+                The .active class needs to be added to one of the slides. Otherwise, the carousel will not be visible.
+
+                The "Left and right controls" part:
+
+                This code adds "left" and "right" buttons that allows the user to go back and forth between the slides manually.
+
+                The data-slide attribute accepts the keywords "prev" or "next", which alters the slide position relative to its current position.
+
+
+<style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 70%;
+        margin: auto;
+    }
+</style>
+<div class="container">
+    <br>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+
+            <div class="item active">
+                <img src="img_chania.jpg" alt="Chania" width="460" height="345">
+                <div class="carousel-caption">
+                    <h3>Chania</h3>
+                    <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img_chania2.jpg" alt="Chania" width="460" height="345">
+                <div class="carousel-caption">
+                    <h3>Chania</h3>
+                    <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img_flower.jpg" alt="Flower" width="460" height="345">
+                <div class="carousel-caption">
+                    <h3>Flowers</h3>
+                    <p>Beatiful flowers in Kolymbari, Crete.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+                <div class="carousel-caption">
+                    <h3>Flowers</h3>
+                    <p>Beatiful flowers in Kolymbari, Crete.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+<br />
+Modal Plugin
+<br />===================================<br>
+
+The "Trigger" part:
+
+To trigger the modal window, you need to use a button or a link.
+
+Then include the two data-* attributes:
+
+data-toggle="modal" opens the modal window
+data-target="#myModal" points to the id of the modal
+The "Modal" part:
+
+The parent < div>
+    of the modal must have an ID that is the same as the value of the data-target attribute used to trigger the modal ("myModal").
+
+    The .modal class identifies the content of < div>
+        as a modal and brings focus to it.
+
+        The .fade class adds a transition effect which fades the modal in and out. Remove this class if you do not want this effect.
+
+        The attribute role="dialog" improves accessibility for people using screen readers.
+
+        The .modal-dialog class sets the proper width and margin of the modal.
+
+        The "Modal content" part:
+
+        The < div>
+            with class="modal-content" styles the modal (border, background-color, etc.). Inside this < div>
+                , add the modal's header, body, and footer.
+
+                The .modal-header class is used to define the style for the header of the modal. The < button>
+                    inside the header has a data-dismiss="modal" attribute which closes the modal if you click on it. The .close class styles the close button, and the .modal-title class styles the header with a proper line-height.
+
+                    The .modal-body class is used to define the style for the body of the modal. Add any HTML markup here; paragraphs, images, videos, etc.
+
+                    The .modal-footer class is used to define the style for the footer of the modal. Note that this area is right aligned by default.
+
+
+<br />
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        @*Modal Size by modal-dialog modal-sm modal-dialog modal-lg*@
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br />
+ToolTip Plugin
+<br />===================================<br>
+
+To create a tooltip, add the data-toggle="tooltip" attribute to an element.
+
+Use the title attribute to specify the text that should be displayed inside the tooltip:
+
+Note: Tooltips must be initialized with jQuery: select the specified element and call the tooltip() method.
+
+Use the data-placement attribute to set the position of the tooltip on top, bottom, left or the right side of the element:
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+<a href="#" data-toggle="tooltip" data-placement="top" title="Hooray!">Hover</a>
+<a href="#" data-toggle="tooltip" data-placement="bottom" title="Hooray!">Hover</a>
+<a href="#" data-toggle="tooltip" data-placement="left" title="Hooray!">Hover</a>
+<a href="#" data-toggle="tooltip" data-placement="right" title="Hooray!">Hover</a>
+<a href="#" data-toggle="tooltip" data-placement="auto" title="Hooray!">Hover</a>
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
+
+<div class="container">
+    <h3>Popover Example</h3>
+    <a href="#" title="Header" data-toggle="popover" data-content="Some content">Click Me</a><br>
+    <a href="#" title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">Hover over me</a>
+</div>
+
+<br />
+Scrollspy Plugin
+<br />===================================<br>
+Add data-spy="scroll" to the element that should be used as the scrollable area (often this is the < body>
+    element).
+
+    Then add the data-target attribute with a value of the id or the class name of the navigation bar (.navbar). This is to make sure that the navbar is connected with the scrollable area.
+
+    Note that scrollable elements must match the ID of the links inside the navbar's list items (< div id="section1">  matches < a href="#section1">
+            ).
+
+            The optional data-offset attribute specifies the number of pixels to offset from top when calculating the position of scroll. This is useful when you feel that the links inside the navbar changes the active state too soon or too early when jumping to the scrollable elements. Default is 10 pixels
+
+<br /><br />
+
+Refer Source code
+<br /><br />
+
+@*<style>
+    body {
+        position: relative;
+    }
+
+    #section1 {
+        padding-top: 50px;
+        height: 500px;
+        color: #fff;
+        background-color: #1E88E5;
+    }
+
+    #section2 {
+        padding-top: 50px;
+        height: 500px;
+        color: #fff;
+        background-color: #673ab7;
+    }
+
+    #section3 {
+        padding-top: 50px;
+        height: 500px;
+        color: #fff;
+        background-color: #ff9800;
+    }
+
+    #section41 {
+        padding-top: 50px;
+        height: 500px;
+        color: #fff;
+        background-color: #00bcd4;
+    }
+
+    #section42 {
+        padding-top: 50px;
+        height: 500px;
+        color: #fff;
+        background-color: #009688;
+    }
+</style>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#section1">Section 1</a></li>
+                        <li><a href="#section2">Section 2</a></li>
+                        <li><a href="#section3">Section 3</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#section41">Section 4-1</a></li>
+                                <li><a href="#section42">Section 4-2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="section1" class="container-fluid">
+        <h1>Section 1</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div id="section2" class="container-fluid">
+        <h1>Section 2</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div id="section3" class="container-fluid">
+        <h1>Section 3</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div id="section41" class="container-fluid">
+        <h1>Section 4 Submenu 1</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div id="section42" class="container-fluid">
+        <h1>Section 4 Submenu 2</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+</body>*@
+
+    @*<style> 
+  body {
+      position: relative;
+  }
+  ul.nav-pills {
+      top: 20px;
+      position: fixed;
+  }
+  div.col-sm-9 div {
+      height: 250px;
+      font-size: 28px;
+  }
+  #section1 {color: #fff; background-color: #1E88E5;}
+  #section2 {color: #fff; background-color: #673ab7;}
+  #section3 {color: #fff; background-color: #ff9800;}
+  #section41 {color: #fff; background-color: #00bcd4;}
+  #section42 {color: #fff; background-color: #009688;}
+  
+    </style>*@
+@*@media screen and (max-width: 810px) {
+    #section1, #section2, #section3, #section41, #section42  {
+        margin-left: 150px;
+    }
+  }*@
+
+@*<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+
+    <div class="container">
+        <div class="row">
+            <nav class="col-sm-3" id="myScrollspy">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#section1">Section 1</a></li>
+                    <li><a href="#section2">Section 2</a></li>
+                    <li><a href="#section3">Section 3</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#section41">Section 4-1</a></li>
+                            <li><a href="#section42">Section 4-2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="col-sm-9">
+                <div id="section1">
+                    <h1>Section 1</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                </div>
+                <div id="section2">
+                    <h1>Section 2</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                </div>
+                <div id="section3">
+                    <h1>Section 3</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                </div>
+                <div id="section41">
+                    <h1>Section 4-1</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                </div>
+                <div id="section42">
+                    <h1>Section 4-2</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>*@
+
+
+<h3>The Affix Plugin</h3>
+The Affix plugin allows an element to become affixed (locked) to an area on the page. This is often used with navigation menus or social icon buttons, to make them "stick" at a specific area while scrolling up and down the page.
+
+The plugin toggles this behavior on and off (changes the value of CSS position from static to fixed), depending on scroll position.
+
+Add data-spy="affix" to the element you want affixed.
+
+Optionally, add the data-offset-top|bottom attribute to calculate the position of the scroll.
+
+How it works
+The affix plugin toggles between three classes: .affix, .affix-top, and .affix-bottom. Each class represents a particular state. You must add CSS properties to handle the actual positions, with the exception of position:fixed on the .affix class.
+
+The plugin adds the .affix-top or .affix-bottom class to indicate the element is in its top-most or bottom-most position. Positioning with CSS is not required at this point.
+
+Scrolling past the affixed element triggers the actual affixing - This is where the plugin replaces the .affix-top or .affix-bottom class with the .affix class (sets position:fixed). At this point, you must add the CSS top or bottom property to position the affixed element in the page.
+
+If a bottom offset is defined, scrolling past it replaces the .affix class with .affix-bottom. Since offsets are optional, setting one requires you to set the appropriate CSS. In this case, add position:absolute when necessary.
+In the first example above, the Affix plugin adds the .affix class (position:fixed) to the < nav>
+    element when we have scrolled 197 pixels from the top. If you open the example, you will also see that we added the CSS top property with a value of 0 to the .affix class. This is to make sure that the navbar stays at the top of the page at all time, when we have scrolled 197 pixels from the top.
+
+    Scrollspy & Affix
+    Using the Affix plugin together with the Scrollspy plugin:
+
+    Horizontal Menu (Navbar)
+    < body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+        < nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+            ...
+        < /nav>
+
+    < /body>
+
+<br />
+TEXT<br />
+========================
+<br />
+<div class="container">
+    <h2>Text</h2>
+    <p class="text-primary">This paragraph is styled with class "text-primary".</p>
+    <a class="text-primary" href="default.asp">This link is styled with class "text-primary".</a>
+</div>
+
+<br />
+Button Plugin
+<br />
+===========================================
+<br />
+<style>
+    .btn-default {
+        border-radius: 0;
+    }
+
+    .btn-default {
+        box-shadow: 1px 2px 5px #000000;
+    }
+</style>
+
+<div class="container">
+    <h2>Customized Buttons</h2>
+    <p>Button without rounded corners:</p>
+    <button type="button" class="btn btn-success">Rounded corners</button>
+    <button type="button" class="btn btn-default">No rounded corners</button>
+    <p>Button with shadows:</p>
+    <button type="button" class="btn btn-default">Button with Shadow</button>
+</div>
+
+
+<br />
+Dropdown Plugin
+<br />===================================<br>
+
+<div class="container">
+    <h2>Dropdown Example</h2>
+    <p> Add data-toggle="dropdown" to a link or a button to toggle a dropdown menu.</p>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
+            Dropdown Example
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+        </ul>
+    </div>
+</div>
+
+<br />
+MultiLevel Dropdown Plugin
+<br />
+=========================
+<br />
+
+<style>
+    .dropdown-submenu {
+        position: relative;
+    }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+</style>
+
+<div class="container">
+    <h2>Multi-Level Dropdowns</h2>
+    <p>In this example, we have created a .dropdown-submenu class for multi-level dropdowns (see style section above).</p>
+    <p>Note that we have added jQuery to open the multi-level dropdown on click (see script section below).</p>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            Tutorials
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a tabindex="-1" href="#">HTML</a></li>
+            <li><a tabindex="-1" href="#">CSS</a></li>
+            <li class="dropdown-submenu">
+                <a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+                    <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+                    <li class="dropdown-submenu">
+                        <a class="test" href="#">Another dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">3rd level dropdown</a></li>
+                            <li><a href="#">3rd level dropdown</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+
+
+<br />
+Modal Plugin
+<br />=====================================
+<br />
+<style>
+    .modal-header, h4, .close {
+        background-color: #5cb85c;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+    
+</style>
+
+<div class="container">
+    <h2>Modal Login Example</h2>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-default btn-lg" id="mtton">Login</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="LMODAL" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+                </div>
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                            <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                            <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    <p>Not a member? <a href="#">Sign Up</a></p>
+                    <p>Forgot <a href="#">Password?</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $("#mtton").click(function () {
+        $("#LMODAL").modal();
+    });
+});
+</script>
+

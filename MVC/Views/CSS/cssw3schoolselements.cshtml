@@ -1,0 +1,380 @@
+﻿
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>cssw3schools</title>
+    <style type="text/css">
+        p.cls1, h2 {
+            color: rebeccapurple;
+            text-align: center;
+            margin-left: 10px;
+        }
+
+        #id2 {
+            background-color: aqua;
+        }
+
+        #id3 {
+            border-color: rgb(220,230,60);
+        }
+
+        .cls2 {
+            color: #280cb6;
+        }
+
+        body {
+            /*background-image: linear-gradient();*/
+            background-repeat: no-repeat;
+            /*background-position-x: center;
+            background-origin: border-box;
+            background-size: cover;*/
+            background-image: url('../../AJSTestFolder/Images/pic_bulbon.gif'); /*Can drag and drop*/
+            background-attachment: fixed;
+        }
+
+        #brdr {
+            border-color: red;
+            border-style: double;
+            border-bottom-color: green;
+            border-top-width: thick;
+            border-bottom-left-radius: 10px;
+            border-top-style: ridge;
+        }
+
+        #mrgn {
+            /*margin:auto;*/
+            margin-top: 50px;
+            shape-margin: 150px;
+            /*margin:0 25px 90px 100px;*/
+            border-color: brown;
+        }
+
+        div.cls3 {
+            padding: 50px 50px 50px 45px;
+        }
+
+        div#hw {
+            height: 100px;
+            width: 200px;
+        }
+
+        div#bx {
+            background-color: lightgrey;
+            width: 300px;
+            border: 25px solid green;
+            padding: 25px;
+            margin: 25px;
+        }
+        div#txt{
+            text-align:center;
+            text-decoration:solid double;
+            text-shadow:5px;
+            text-transform:full-width;
+            text-wrap:normal;
+
+            font-family:Calibri;
+            font-size:medium;
+            font-style:italic;
+        }
+/*Hyperlink*/
+        a:link {
+    background-color: yellow;
+}
+
+a:visited {
+    background-color: cyan;
+}
+
+a:hover {
+    background-color: lightgreen;
+}
+
+a:active {
+    background-color: hotpink;
+} 
+ul.a {
+    list-style-position:inside;
+    list-style-type: circle;
+}
+
+ul.b {
+    list-style-type: square;
+}
+
+ol.c {
+    list-style-type: upper-roman;
+}
+
+ol.d {
+    list-style-type: lower-alpha;
+}
+table {
+    border-collapse:separate;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+tr:hover{background-color:#0932d0}
+div#psn{position:fixed;
+        width:200px;
+        bottom:0;
+        right:0;
+        border-color:rebeccapurple;
+        border-style:solid ridge ;
+}
+div.ovrflw
+ {
+    background-color: #eee;
+    width: 200px;
+    height: 50px;
+    border: 1px dotted black;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+* {
+    box-sizing: border-box;
+}
+.header, .footer {
+    background-color: grey;
+    color: white;
+    padding: 15px;
+}
+.column {
+    float: left;
+    padding: 15px;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.menu {
+    width: 25%;
+}
+.content {
+    width: 75%;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #33b5e5;
+    color: #ffffff;
+}
+.menu li:hover {
+    background-color: #0099cc;
+}
+/*CSS Combinator*/
+div p {
+    background-color: yellow;
+}
+div > p {
+    background-color: yellow;
+}
+div + p {
+    background-color: yellow;
+}
+div ~ p {
+    background-color: yellow;
+}
+/*Pseudo-classes*/
+div.pesudotest:hover {
+    background-color: #f610d5;
+}
+::selection{
+    color: red;
+    background: yellow;
+}
+/*Opacity*/
+img{opacity:05;}
+
+/*Rounded corners*/
+#roundedcrnr{
+    height:50px;
+    width:50px;
+    border-radius:10px;
+    background-color:purple;
+    color:white;
+    margin:auto;
+    padding:0;
+}
+#grad{
+    height:50px;
+    width:800px;
+    background:linear-gradient(red,blue,green,white,purple,orange,gold)
+    }
+#shd{
+    font-size:larger;
+    text-shadow:5px,5px green;
+}
+    </style>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+    <p>
+        CSS References - <a href="http://www.w3schools.com/cssref/default.asp">http://www.w3schools.com/cssref/default.asp</a>
+        At W3Schools you will find complete CSS references of all properties and selectors with syntax, examples, browser support, and more.
+        CSS Properties Reference    CSS Selectors Reference    CSS Functions Reference    CSS Animatable Reference     CSS Aural Reference    CSS Units    CSS Color Reference    CSS Default Values
+    </p>
+    <p id="id1" class="cls1">Elemente selector[p,h1,div], ID selector[#] , Class selector[.]</p>
+    <p id="id2" class="cls2">There are three ways of inserting a style sheet: External style sheet[< link rel="stylesheet" type="text/css" href="mystyle.css" >],Internal style sheet,Inline style[< h1 style="color:blue;margin-left:30px;" >]</p>
+    <h1 style="color:blue;margin-left:30px;">CSS Order == Inline style (inside an HTML element)->External and internal style sheets (in the head section)->Browser default</h1>
+    <p><img src="http://www.w3schools.com/css/selector.gif" /></p>
+    <p id="id3">Colors in CSS are most often specified by:a valid color name - like "red",an RGB value - like "rgb(255, 0, 0)",a HEX value - like "#ff0000"</p>
+    <div id="id4">CSS background properties: background-color,background-image,background-repeat,background-attachment,background-position</div>
+    <div>
+        Background - Shorthand property..To shorten the code, it is also possible to specify all the background properties in one single property. This is called a shorthand property.
+        The shorthand property for background is background: Example body {     background: #ffffff url("img_tree.png") no-repeat right top;}     When using the shorthand property the order of the property values is: background-color,background-image,background-repeat,background-attachment,
+        background-position<p>Background property not working with image*****</p>
+    </div>
+    <div id="brdr">
+        Element Border properties
+    </div>
+    <div id="mrgn">Element margin properties, <p>"inherit" value can be used to inherit value from paranet element for a particular property</p> </div>
+    <div class="cls3" style="border-color:firebrick">Padding- to create space around element</div>
+    <div id="hw">Heigth width</div>
+
+    <img src="klematis4_big.jpg" width="350" height="263" alt="Klematis">
+    <div id="bx">BOX MODAL</div>
+    <div id="txt">TEXT, FONT</div>
+    <p><b><a href="default.asp" target="_blank">This is a link</a></b></p>
+    <ul class="a">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+
+    <ul class="b">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Points</th>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Griffin</td>
+            <td>$100</td>
+        </tr>
+    </table>
+    <div id="psn">Position</div>
+    <p>You can also change the overflow of content horizontally or vertically.</p>
+    <p>
+        overflow-x specifies what to do with the left/right edges of the content.<br>
+        overflow-y specifies what to do with the top/bottom edges of the content.
+    </p>
+
+    <div class="ovrflw">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+
+
+    <div class="header">
+        <h1>Float Sample</h1>
+    </div>
+    <div class="clearfix">
+        <div class="column menu">
+            <ul>
+                <li>The Flight</li>
+                <li>The City</li>
+                <li>The Island</li>
+                <li>The Food</li>
+            </ul>
+        </div>
+        <div class="column content">
+            <h1>Float</h1>
+            <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
+            <p>You will learn more about web layout and responsive web pages in a later chapter.</p>
+        </div>
+    </div>
+    <div style="color:#ff00dc">
+        CSS Combinators
+        A combinator is something that explains the relationship between the selectors.
+
+        A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
+
+        There are four different combinators in CSS3:
+        ==>
+        descendant selector (div space p),
+        child selector (div > p),
+        adjacent sibling selector (div + p),
+        general sibling selector (div ~ p)
+        <div>
+            <p>Paragraph 1 in the div.</p>
+            <p>Paragraph 2 in the div.</p>
+            <span><p>Paragraph 3 in the div.</p></span>
+        </div>
+
+        <p>Paragraph 4. Not in a div.</p>
+        <p>Paragraph 5. Not in a div.</p>
+    </div>
+    <div class="pesudotest">
+        A pseudo-class[:link,:vistited,:hover,:active,:first-child.......] is used to define a special state of an element.
+        <br />
+        For example, it can be used to:
+        <br />
+        Style an element when a user mouses over it<br />
+        Style visited and unvisited links differently<br />
+        Style an element when it gets focus<br />
+
+        The syntax of pseudo-classes:
+        <br />
+        selector:pseudo-class {<br />
+        property:value;}<br />
+        div:hover {<br />
+        background-color: blue;<br />
+        }<br />
+
+    </div>
+    <div>
+        The opacity property specifies the opacity/transparency of an element.[0.1 - 1.0]
+        <img src="~/AJSTestFolder/Images/pic_bulbon.gif" />
+    </div>
+    <div>
+        CSS [attribute] Selector<br />
+        The [attribute] selector is used to select elements with a specified attribute.
+        <br />
+        The following example selects all < a>
+            elements with a target attribute:
+        <br />
+            Example<br />
+            a[target] {<br />
+            background-color: yellow;
+            }<br />
+            Try it Yourself »
+            CSS [attribute="value"] Selector<br />
+            The [attribute="value"] selector is used to select elements with a specified attribute and value.
+        <br />
+            The following example selects all <a>
+                elements with a target="_blank" attribute:
+                                                  <br />
+                Example
+                a[target="_blank"] {
+                background-color: yellow;
+                }<br />
+                                                  input[type=text] {
+                                                  background-color: #3CBC8D;
+                                                  color: white;
+                                                  }
+    </div>
+    <div style="color:red;font-style:italic;font-size:large">CSS3</div>
+    <div id="roundedcrnr">Rounded Corner</div>
+    <div id="grad">GRADIENT</div>
+<div id="shd">Shadow</div>    
+</body>
+</html>

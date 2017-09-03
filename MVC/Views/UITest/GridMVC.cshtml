@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVC.Controllers.Client>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "GridMVC";
+}
+
+<h2>GridMVC</h2>
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Scripts/gridmvc.min.js"></script>
+<div>
+    @*@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.ProfileID).Titled("ProfileIDGridMVC").Filterable(true);
+    columns.Add(c => c.ItemName).Titled("ItemNameGridMVC").Filterable(true);
+    columns.Add().Sanitized(false).SetWidth(20).Encoded(false).RenderValueAs(a => Html.ActionLink("", "", new { id = a.ProfileID }));
+}).WithPaging(10).Sortable(true);*@
+    @Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.Id).Titled("Client ID");//.Filterable(true);
+    columns.Add(c => c.Name).Titled("Name").Filterable(true);
+    columns.Add(c => c.Email).Titled("Email");
+    columns.Add(c => c.Dated).Titled("Dated").Filterable(true);
+    columns.Add().Encoded(false).Sanitized(false).RenderValueAs(a => Html.ActionLink("EDITG", "EDITG", new { id = a.Id }));
+}).WithPaging(3).Sortable(true)
+</div>
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@

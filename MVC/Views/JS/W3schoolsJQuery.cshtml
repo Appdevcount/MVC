@@ -1,0 +1,984 @@
+﻿
+<h2>W3Schools JQuery </h2><br /><hr />
+<h3>JQuery Selector</h3><br />
+<br />=============================<br />
+
+$(this).hide() - hides the current element.<br />
+
+$("p").hide() - hides all < p>    elements.<br />
+
+    $(".test").hide() - hides all elements with class="test".<br />
+
+    $("#test").hide() - hides the element with id="test".<br />
+jQuery selectors are used to "find" (or select) HTML elements based on their name, id, classes, types, attributes, values of attributes and much more. 
+It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
+
+All selectors in jQuery start with the dollar sign and parentheses: $().<br />
+ jQuery Selector Tester to demonstrate the different selectors<br />
+<a href="http://www.w3schools.com/jquery/trysel.asp">jQuery Selector Tester</a>
+<hr />
+<h3>JQuery Events Method</h3><br />
+<br />=============================<br />
+<p>
+    The term <b>&quot;fires/fired&quot;</b> is often used with events. Example:
+    &quot;The keypress event is fired, the moment you press a key&quot;.
+</p>
+<p>Here are some common DOM events:</p>
+<div class="w3-responsive">
+    <table class="w3-table-all notranslate">
+        <tr>
+            <th style="width:23%">Mouse Events</th>
+            <th style="width:25%">Keyboard Events</th>
+            <th style="width:22%">Form Events</th>
+            <th>Document/Window Events</th>
+        </tr>
+        <tr>
+            <td>click</td>
+            <td>keypress</td>
+            <td>submit</td>
+            <td>load</td>
+        </tr>
+        <tr>
+            <td>dblclick</td>
+            <td>keydown</td>
+            <td>change</td>
+            <td>resize</td>
+        </tr>
+        <tr>
+            <td>mouseenter</td>
+            <td>keyup</td>
+            <td>focus</td>
+            <td>scroll</td>
+        </tr>
+        <tr>
+            <td>mouseleave</td>
+            <td>&nbsp;</td>
+            <td>blur</td>
+            <td>unload</td>
+        </tr>
+    </table>
+</div>
+
+
+<hr />
+<h4>Some Samples</h4><br />
+<br />=============================<br />
+Focus
+<br />=============================<br />
+
+<script>
+$(document).ready(function(){
+    $("input").focus(function(){
+        $(this).css("background-color", "#cccccc");
+    });
+    $("input").blur(function(){
+        $(this).css("background-color", "#ffffff");
+    });
+});
+</script>
+<br />Focus<br />
+    Name: <input type="text" name="fullname"><br>
+    Email: <input type="text" name="email">
+
+<br />
+
+On - Multi Method
+<br />=============================<br />
+
+The on() method attaches one or more event handlers for the selected elements.
+
+<br />
+<script>
+$(document).ready(function(){
+    $("#MultiEventTest").on({
+        mouseenter: function(){
+            $(this).css("background-color", "lightgray");
+        },
+        mouseleave: function(){
+            $(this).css("background-color", "lightblue");
+        },
+        click: function(){
+            $(this).css("background-color", "yellow");
+        }
+    });
+    //$(document).ready(function () {
+    //    $("p").on("click", function () {
+    //        $(this).hide();
+    //    });
+    //});
+});
+</script>
+
+    <p id="MultiEventTest">Click or move the mouse pointer over this paragraph.</p>
+<br />
+
+<hr />
+<h3>JQuery Effects Method</h3>
+<br />=============================<br />
+<br />
+<b>Hide, Show, Toggle, Slide, Fade, and Animate</b>
+<br />
+Syntax:
+
+$(selector).hide(speed,callback);<br />
+
+$(selector).show(speed,callback);<br />
+The optional speed parameter specifies the speed of the hiding/showing, and can take the following values: "slow", "fast", or milliseconds.
+<br />
+The optional callback parameter is a function to be executed after the hide() or show() method completes (you will learn more about callback functions in a later chapter).
+<br /><br />
+<b>jQuery Fading Methods </b><br />
+With jQuery you can fade an element in and out of visibility.
+<br />
+jQuery has the following fade methods:
+<br />
+fadeIn() -- $(selector).fadeIn(speed,callback);<br />
+fadeOut()<br />
+fadeToggle()<br />
+fadeTo() --The jQuery fadeTo() method allows fading to a given opacity (value between 0 and 1).
+
+Syntax:
+
+$(selector).fadeTo(speed,opacity,callback);<br />
+$("button").click(function(){
+    $("#div1").fadeTo("slow", 0.15);
+    $("#div2").fadeTo("slow", 0.4);
+    $("#div3").fadeTo("slow", 0.7);
+});
+<br />
+
+<b>jQuery Sliding Methods</b>
+With jQuery you can create a sliding effect on elements.
+<br />
+jQuery has the following slide methods:
+<br />
+slideDown()<br />
+slideUp()<br />
+slideToggle() --$(selector).slideToggle(speed,callback);<br />
+$("#flip").click(function(){
+    $("#panel").slideToggle();
+});
+<br />
+<script>
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+</script>
+
+
+<style>
+    #panel, #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+</style>
+
+    <div id="flip">Click to slide the panel down or up</div>
+    <div id="panel">Hello world!</div>
+<br />
+
+<b> jQuery Animations - The animate() Method </b><br />
+The jQuery animate() method is used to create custom animations.
+<br />
+Syntax:
+<br />
+$(selector).animate({params},speed,callback); <br />
+The required params parameter defines the CSS properties to be animated.
+<br />
+The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+<br />
+The optional callback parameter is a function to be executed after the animation completes.
+<br />
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").hide(1000);
+        alert("The paragraph is now hidden");
+    });
+});
+<br />
+Multi CSS Properties <br />
+<script>
+$(document).ready(function(){
+    $("#AnmMulti").click(function () {
+        $("#AnmMultidiv").animate({
+            left: '250px',
+            opacity: '0.5',
+            height: '150px',
+            width: '150px'
+        });
+    });
+});
+</script>
+
+    <button id="AnmMulti">Start Animation</button>
+
+    <p>By default, all HTML elements have a static position, and cannot be moved. 
+    To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+    <div id="AnmMultidiv" style="background:#98bf21;height:25px;width:25px;position:absolute;"></div>
+
+<br />
+
+
+<script>
+$(document).ready(function(){
+    $("#AnmToggle").click(function () {
+        $("#AnmTogglediv").animate({
+            height: 'toggle'
+        });
+    });
+});
+</script>
+
+    <p>Click the button multiple times to toggle the animation.</p>
+
+    <button id="AnmToggle">Start Animation</button>
+
+    <p>By default, all HTML elements have a static position, and cannot be moved.
+     To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+    <div id="AnmTogglediv" style="background:#98bf21;height:25px;width:25px;position:absolute;"></div>
+
+<br />
+<script>
+$(document).ready(function(){
+    $("#AnmQ").click(function () {
+        var div = $("#AnmQDiv");
+        //div.animate({height: '300px', opacity: '0.4'}, "slow");
+        div.animate({width: '300px', opacity: '0.8'}, "slow");
+        div.animate({height: '100px', opacity: '0.4'}, "slow");
+        div.animate({width: '100px', opacity: '0.8'}, "slow");
+    });
+});
+</script>
+
+    <button id="AnmQ">Start Animation</button>
+
+    <p>By default, all HTML elements have a static position, and cannot be moved.
+     To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+    <div id="#AnmQDiv" style="background:#98bf21;height:25px;width:25px;position:absolute;"></div>
+
+<br />
+<b>jQuery stop() Method </b>
+The jQuery stop() method is used to stop an animation or effect before it is finished.
+<br />
+The stop() method works for all jQuery effect functions, including sliding, fading and custom animations.
+<br />
+Syntax:
+<br />
+$(selector).stop(stopAll,goToEnd);<br />
+The optional stopAll parameter specifies whether also the animation queue should be cleared or not. 
+Default is false, which means that only the active animation will be stopped, allowing any queued animations to be performed afterwards.
+<br />
+The optional goToEnd parameter specifies whether or not to complete the current animation immediately. Default is false.
+<br />
+So, by default, the stop() method kills the current animation being performed on the selected element.
+<br />
+<b>
+    jQuery Method Chaining
+</b>
+<br />
+Until now we have been writing jQuery statements one at a time (one after the other).
+
+<br />
+However, there is a technique called chaining, that allows us to run multiple jQuery commands, one after the other, on the same element(s).
+
+<br />
+$("#p1").css("color", "red")
+  .slideUp(2000)
+  .slideDown(2000);
+
+<script>
+$(document).ready(function(){
+    $("#Chainb").click(function () {
+        $("#Chaind").css("color", "red").slideUp(2000).slideDown(2000);
+    });
+});
+</script>
+    <p id="Chaind">jQuery is fun!!</p>
+
+    <button id="Chainb">Click me</button>
+<hr />
+<h3>JQuery HTML</h3><br />
+<br />====================<br />
+jQuery DOM Manipulation<br />
+One very important part of jQuery is the possibility to manipulate the DOM.
+<br />
+jQuery comes with a bunch of DOM related methods that make it easy to access and manipulate elements and attributes.
+<br />
+<b>
+    Get Content - text(), html(), and val()
+</b>
+<br />
+Three simple, but useful, jQuery methods for DOM manipulation are:
+<br />
+text() - Sets or returns the text content of selected elements
+<br />
+html() - Sets or returns the content of selected elements (including HTML markup)
+<br />
+val() - Sets or returns the value of form fields
+<br />
+<script>
+$(document).ready(function(){
+    $("#BTTEXT").click(function () {
+        alert("Text: " + $("#JQGP").text());
+    });
+    $("#BTHTML").click(function () {
+        alert("HTML: " + $("#JQGP").html() + "HREF Value or attribute" + $('#ah').attr('href'));
+        //alert("HREF Value or attribute" + $('#HREFATTR').attr());
+    });
+});
+</script>
+
+    <p id="JQGP">This is some <b>bold</b> text in a paragraph.</p>
+
+    <button id="BTTEXT">Show Text</button>
+    <button id="BTHTML">Show HTML</button>
+
+<a id="ah" href="http://www.w3schools.com">W3Schools</a>
+
+<br />
+<b>
+    Set Content - text(), html(), and val()
+</b>
+<br />
+We will use the same three methods from the previous page to set content:
+<br />
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#w3s").attr({
+            "href" : "http://www.w3schools.com/jquery",
+            "title" : "W3Schools jQuery Tutorial"
+        });
+    });
+});
+<br />
+<br />
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#test1").text("Hello world!");
+    });
+    $("#btn2").click(function(){
+        $("#test2").html("<b>Hello world!</b>");
+    });
+    $("#btn3").click(function(){
+        $("#test3").val("Dolly Duck");
+    });
+});
+<br /><br />
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#test1").text(function(i, origText){
+            return "Old text: " + origText + " New text: Hello world! (index: " + i + ")";
+        });
+    });
+
+    $("#btn2").click(function(){
+        $("#test2").html(function(i, origText){
+            return "Old html: " + origText + " New html: Hello <b>world!</b> (index: " + i + ")";
+        });
+    });
+});
+
+<br />
+<b>
+    Add New HTML Content
+</b>
+<br />
+We will look at four jQuery methods that are used to add new content:
+
+<br />
+append() - Inserts content at the end of the selected elements
+<br />
+prepend() - Inserts content at the beginning of the selected elements
+<br />
+after() - Inserts content after the selected elements
+<br />
+before() - Inserts content before the selected elements
+<br />
+Append
+<br />
+$("#btn1").click(function(){
+        $("p").append(" <b>Appended text</b>.");
+    });
+
+    $("#btn2").click(function(){
+        $("ol").append("<li>Appended item</li>");
+    });
+<br />
+Prepend
+<br />
+    $("#btn1").click(function(){
+        $("p").prepend("<b>Prepended text</b>. ");
+    });
+    $("#btn2").click(function(){
+        $("ol").prepend("<li>Prepended item</li>");
+    });
+
+<br />
+Before After
+<br />$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("img").before("<b>Before</b>");
+    });
+
+    $("#btn2").click(function(){
+        $("img").after("<i>After</i>");
+    });
+});
+
+<br />
+Multi
+<br />
+
+function afterText() {
+    var txt1 = "<b>I </b>";                   // Create element with HTML
+    var txt2 = $("<i></i>").text("love ");    // Create with jQuery
+    var txt3 = document.createElement("b");   // Create with DOM
+    txt3.innerHTML = "jQuery!";
+    $("img").after(txt1, txt2, txt3);      // Insert new elements after img
+}
+
+<br />
+<b>
+    Remove Elements/Content
+</b><br />
+To remove elements and content, there are mainly two jQuery methods:
+<br />
+remove() - Removes the selected element (and its child elements)<br />
+empty() - Removes the child elements from the selected element<br />
+$("#div1").remove();<br />
+$("#div1").empty();<br />
+$("p").remove(".test, .demo");<br />
+
+<br />
+<b>jQuery Manipulating CSS</b><br />
+jQuery has several methods for CSS manipulation. We will look at the following methods:
+<br />
+addClass() - Adds one or more classes to the selected elements<br />
+removeClass() - Removes one or more classes from the selected elements<br />
+toggleClass() - Toggles between adding/removing classes from the selected elements<br />
+css() - Sets or returns the style attribute<br />
+Example Stylesheet<br />
+The following stylesheet will be used for all the examples on this page:
+<br />
+.important {
+    font-weight: bold;
+    font-size: xx-large;
+}
+<br />
+.blue {
+    color: blue;
+}
+<br />
+
+$("button").click(function(){
+    $("h1, h2, p").addClass("blue");
+    $("div").addClass("important");
+});
+<br />
+$("button").click(function(){
+    $("h1, h2, p").removeClass("blue");
+});<br />
+$(document).ready(function(){
+    $("button").click(function(){
+        $("h1, h2, p").toggleClass("blue");
+    });
+});
+<br />
+<b>
+    jQuery css() Method
+</b><br />
+The css() method sets or returns one or more style properties for the selected elements.
+<br />
+$("p").css({"background-color": "yellow", "font-size": "200%"});
+<br />
+<b>jQuery Dimension Methods</b>
+
+<br />
+jQuery has several important methods for working with dimensions:
+<br />
+width()<br />
+height()<br />
+innerWidth()<br />
+innerHeight()<br />
+outerWidth()<br />
+outerHeight()<br />
+<br /> Refer Site<br />
+
+<hr />
+<b>
+    jQuery Traversing
+</b><br />What is Traversing?<br />
+
+jQuery traversing, which means "move through", are used to "find" (or select) HTML elements based on their relation to other elements. 
+Start with one selection and move through that selection until you reach the elements you desire.
+<br />
+The image below illustrates a family tree. With jQuery traversing, you can easily move up (ancestors), down (descendants) and sideways (siblings) in the family tree,
+ starting from the selected (current) element. This movement is called traversing - or moving through - the DOM.
+<br />
+<b>
+    Traversing Up the DOM Tree
+</b><br />
+An ancestor is a parent, grandparent, great-grandparent, and so on.
+With jQuery you can traverse up the DOM tree to find ancestors of an element.
+Three useful jQuery methods for traversing up the DOM tree are:
+<br />
+parent()<br />
+parents()<br />
+parentsUntil()<br />
+$(document).ready(function(){
+    $("span").parent().css({"color": "red", "border": "2px solid red"});
+});
+<br />
+$(document).ready(function(){
+    $("span").parents("ul").css({"color": "red", "border": "2px solid red"});
+});
+<br />
+$(document).ready(function(){
+    $("span").parentsUntil("div").css({"color": "red", "border": "2px solid red"});
+});
+<br />
+<b>
+    Traversing Down the DOM Tree
+</b><br />
+A descendant is a child, grandchild, great-grandchild, and so on.
+With jQuery you can traverse down the DOM tree to find descendants of an element.
+Two useful jQuery methods for traversing down the DOM tree are:
+<br />
+children()<br />
+find()<br />
+
+$(document).ready(function(){
+    $("div").children().css({"color": "red", "border": "2px solid red"});
+});
+<br />
+$(document).ready(function(){
+    $("div").children("p.first").css({"color": "red", "border": "2px solid red"});
+});
+<br />
+$(document).ready(function(){
+    $("div").find("span").css({"color": "red", "border": "2px solid red"});
+});
+<br />
+<b>
+    Traversing Sideways in The DOM Tree
+</b><br />
+Siblings share the same parent.
+
+With jQuery you can traverse sideways in the DOM tree to find siblings of an element.
+There are many useful jQuery methods for traversing sideways in the DOM tree:
+<br />
+siblings()<br />
+next()<br />
+nextAll()<br />
+nextUntil()<br />
+prev()<br />
+prevAll()<br />
+prevUntil()<br />
+Refer site<br />
+
+<hr />
+
+<h2>Ajax - Definition and Usage</h2>
+<p>The ajax() method is used to perform an AJAX (asynchronous HTTP) request.</p>
+<p>
+    All jQuery AJAX methods use the ajax() method. This method is
+    mostly used for requests where the other methods cannot be used.
+</p>
+<br />
+$("button").click(function(){
+    $("#div1").load("demo_test.txt", function(responseTxt, statusTxt, xhr){
+        if(statusTxt == "success")
+            alert("External content loaded successfully!");
+        if(statusTxt == "error")
+            alert("Error: " + xhr.status + ": " + xhr.statusText);
+    });
+});
+<br />
+<h5>Syntax</h5>
+<div class="w3-code w3-border notranslate">
+    <div>
+        $.ajax(<i>{name:value, name:value, ... }</i>)
+    </div>
+</div>
+<p>The parameters specifies one or more name/value pairs for the AJAX request.</p>
+<p>Possible names/values in the table below:</p>
+<table class="w3-table-all notranslate">
+    <tr>
+        <th style="width:27%">Name</th>
+        <th>Value/Description</th>
+    </tr>
+    <tr>
+        <td>async</td>
+        <td>
+            A Boolean value indicating whether the request should be handled
+            asynchronous or not. Default is true
+        </td>
+    </tr>
+    <tr>
+        <td>beforeSend(<em>xhr</em>)</td>
+        <td>A function to run before the request is sent</td>
+    </tr>
+    <tr>
+        <td>cache</td>
+        <td>
+            A Boolean value indicating whether the browser should cache the
+            requested pages. Default is true
+        </td>
+    </tr>
+    <tr>
+        <td>complete(<em>xhr,status</em>)</td>
+        <td>
+            A function to run when the request is finished (after success and error
+            functions)
+        </td>
+    </tr>
+    <tr>
+        <td>contentType</td>
+        <td>The content type used when sending data to the server. Default is: &quot;application/x-www-form-urlencoded&quot;</td>
+    </tr>
+    <tr>
+        <td>context</td>
+        <td>
+            Specifies the &quot;this&quot; value for all AJAX related callback
+            functions
+        </td>
+    </tr>
+    <tr>
+        <td>data</td>
+        <td>Specifies data to be sent to the server</td>
+    </tr>
+    <tr>
+        <td>dataFilter(<em>data</em>,<em>type</em>)</td>
+        <td>A function used to handle the raw response data of the XMLHttpRequest</td>
+    </tr>
+    <tr>
+        <td>dataType</td>
+        <td>The data type expected of the server response.</td>
+    </tr>
+    <tr>
+        <td>error(<em>xhr,status,error</em>)</td>
+        <td>A function to run if the request fails.</td>
+    </tr>
+    <tr>
+        <td>global</td>
+        <td>
+            A Boolean value specifying whether or not to trigger global AJAX event handles for the request.
+            Default is true
+        </td>
+    </tr>
+    <tr>
+        <td>ifModified</td>
+        <td>
+            A Boolean value specifying whether a request is only successful if the response has changed
+            since the last request. Default is: false.
+        </td>
+    </tr>
+    <tr>
+        <td>jsonp</td>
+        <td>A string overriding the callback function in a jsonp request</td>
+    </tr>
+    <tr>
+        <td>jsonpCallback</td>
+        <td>Specifies a name for the callback function in a jsonp request</td>
+    </tr>
+    <tr>
+        <td>password</td>
+        <td>Specifies a password to be used in an HTTP access authentication request.</td>
+    </tr>
+    <tr>
+        <td>processData</td>
+        <td>
+            A Boolean value specifying whether or not data sent with the request
+            should be transformed into a query string. Default is true
+        </td>
+    </tr>
+    <tr>
+        <td>scriptCharset</td>
+        <td>Specifies the charset for the request</td>
+    </tr>
+    <tr>
+        <td>success(<em>result,status,xhr</em>)</td>
+        <td>A function to be run when the request succeeds</td>
+    </tr>
+    <tr>
+        <td>timeout</td>
+        <td>The local timeout (in milliseconds) for the request</td>
+    </tr>
+    <tr>
+        <td>traditional</td>
+        <td>
+            A Boolean value specifying whether or not to use the traditional style
+            of param serialization
+        </td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>Specifies the type of request. (GET or POST)</td>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>Specifies the URL to send the request to. Default is the current page</td>
+    </tr>
+    <tr>
+        <td>username</td>
+        <td>Specifies a username to be used in an HTTP access authentication request</td>
+    </tr>
+    <tr>
+        <td>xhr</td>
+        <td>A function used for creating the XMLHttpRequest object</td>
+    </tr>
+</table>
+<br />
+
+Foreach
+=======
+                    success: function (data) {
+                        var items = "";
+                        $.each(data, function (i, city) {
+                            items += "<option value='" + city.Value + "'>" + city.Text + "</option>";
+                        });
+                        $('#City_ID').html(items);
+
+                    },
+
+
+$( "form" ).each( function() {
+  $( this ).validate( options );
+} );
+
+
+Jquery Ajax options/events
+=============================
+
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    url: '@Url.Action("CityList", "Home")',
+                    data: { "mCountry": id },
+                    dataType: "json",
+                    beforeSend: function () {
+                    //alert(id);
+                    },
+                    success: function (data) {
+                    var items = "";
+                    $.each(data, function (i, city) {
+                    items += "<option value='" + city.Value + "'>" + city.Text + "</option>";
+                    });
+                    $('#City_ID').html(items);
+
+                    },
+                    error: function (result) {
+
+                    alert('Service call failed: ' + result.status + ' Type :' + result.statusText);
+                    }
+                    });
+                    }
+                    else {
+                    var items = '<option value="">Select</option>';
+                    $('#City_ID').html(items);
+                    }
+                    });
+
+                    });
+
+                    JSON.stringify() serializes a JS object into a JSON string
+                    JSON.parse() will deserialize a JSON string into a JS object
+
+                    $(document).ready(function () {
+                    $('#Country').change(function () {
+                    $.ajax({
+                    type: "post",
+                    url: '@Url.Action("GetOperatorList")',
+                    data: { Country: $('#Country').val() },
+                    datatype: "json",
+                    success: function (Operators) {
+                    $('#Operator').empty();
+                    $("#Operator").append('<option value="">Select Operator</option>');
+
+                    $.each(Operators, function (i, Operator) {
+                    $("#Operator").append('<option value="' + Operator.Value + '">' + Operator.Text + '</option>');
+                    });
+                    },
+                    error: function (ex) {
+                    alert('Failed to retrieve Operators.');//+ ex);
+                    }
+                    });
+                    });
+                    });
+                    $(document).ready(function () {
+
+                    $('#Operator').change(function () {
+                    //create a JavaScript object and serialize it to JSON first.
+                    //Here the data is sent using a JSON object rather than form data({ Country: $('#Country').val(), Operator: $('#Operator').val() })
+                    //and the data is JSON encoded over the wire.
+                    var ServiceReqData = JSON.stringify({ Country: $('#Country').val(), Operator: $('#Operator').val() })
+                    $.ajax({
+                    type: "post",
+                    url: '@Url.Action("GetServiceList")',
+                    data: ServiceReqData,
+                    contentType: "application/json",
+                    datatype: "json",
+                    success: function (Services) {
+                    $('#Service').empty();
+                    $("#Service").append('<option value="">Select Service</option>');
+
+                    $.each(Services, function (i, Service) {
+                    $("#Service").append('<option value="' + Service.Value + '">' + Service.Text + '</option>');
+                    });
+                    },
+                    error: function (ex) {
+                    alert('Failed to retrieve Services.');//+ ex);
+                    }
+                    });
+                    });
+                    });
+
+JQuery Ajax Request in WEBFORM Webservices.Method call
+======================================================
+                    [System.Web.Services.WebMethod]
+
+                    public static bool IsLeapYear(int year)
+
+                    {
+
+                    return DateTime.IsLeapYear(year);
+
+                    }
+
+                    function callAjaxMethod(e) {
+
+                    //To prevent postback from happening as we are ASP.Net TextBox control
+                    //If we had used input html element, there is no need to use ' e.preventDefault()' as posback will not happen
+
+                    e.preventDefault();
+
+                    $.ajax({
+                    type: "POST",
+                    url: "SimpleAjax.aspx/IsLeapYear",
+                    data: '{year: "' + $("#<%=txtYear.ClientID%>").val() + '" }',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                    if (response.d) {
+                    $('#<%=txtIsLeapYear.ClientID%>').val('Leap Year');
+                    }
+                    else {
+                    $('#<%=txtIsLeapYear.ClientID%>').val('Not a Leap Year');
+                    }
+                    },
+                    failure: function (response) {
+                    $('#<%=txtIsLeapYear.ClientID%>').val("Error in calling Ajax:" + response.d);
+                    }
+                    });
+                    }
+
+
+
+Call (Consume) WCF Service (SVC) using AJAX in ASP.Net same as ASMX service by REST with some Service configuration changes for Javascript/JQuery call
+======================================================================================================================================================
+
+                    We need to make some configuration changes to the ASP.Net WCF service in order to make it available to jQuery and JavaScript.
+                    1. Adding AspNetCompatibilityRequirements Attribute
+                    Add the AspNetCompatibilityRequirements attribute for the Service class to make the WCF service behave like an ASP.Net ASMX Web Service and will able to process requests via HTTP in the following way.
+
+                    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+                    public class Service : IService
+                    {
+                    }
+
+                    2. Adding ASP.Net AJAX endpoint behaviour
+                    Add the following ASP.Net AJAX endpoint behaviour in the Web.Config file to enable AJAX calls to the service.
+
+                    <endpointBehaviors>
+                        <behavior name="ServiceAspNetAjaxBehavior">
+                            <enableWebScript />
+                        </behavior>
+                    </endpointBehaviors>
+
+                    3. Adding the WebInvoke attribute
+                    Add the WebInvoke attribute for the method to specify the Method and the ResponseFormat in the following way.
+
+                    [OperationContract]
+                    [System.ServiceModel.Web.WebInvoke(Method = "POST",
+                    ResponseFormat = System.ServiceModel.Web.WebMessageFormat.Json)]
+                    string GetCustomers(string prefix);
+
+
+                    $("#search").live("click", function () {
+                    $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: '<%=ResolveUrl("~/Services/Service.svc/GetCustomers") %>',
+                    data: '{"prefix": "' + $("#prefix").val() + '"}',
+                    processData: false,
+                    dataType: "json",
+                    success: function (response) {
+                    var customers = eval(response.d);
+                    var html = "";
+                    $.each(customers, function () {
+                    html += "<span>Name: " + this.Name + " Id: " + this.Id + "</span><br />";
+                    });
+                    $("#results").html(html == "" ? "No results" : html);
+                    },
+                    error: function (a, b, c) {
+                    alert(a.responseText);
+                    }
+                    });
+                    });
+
+
+Submitting a Form without using button , using Jquery - To refresh Partial Grid from Edit/Delete Modal on success
+=================================================================================================================
+                    Using jquery:
+
+                    $('#myForm').submit();
+
+
+Select / Deselect All/group of CheckBoxes using jQuery
+=====================================================================
+                    <input type="checkbox" id="ckbCheckAll" />
+                    <label for="ckbCheckAll">Select All</label>
+                    <p id="checkBoxes">
+                        <input type="checkbox" id="cb1" value="1" />
+                        <label for="Checkbox1">Option One</label>
+                        <br />
+                        <input type="checkbox" id="cb2" value="2" />
+                        <label for="Checkbox2">Option Two</label>
+                        <br />
+                        <input type="checkbox" id="cb3" value="3" />
+                        <label for="Checkbox3">Option Three</label>
+                        <br />
+                        <input type="checkbox" id="cb4" value="4" />
+                        <label for="Checkbox4">Option Four</label>
+                        <br />
+                        <input type="checkbox" id="cb5" value="5" />
+                        <label for="Checkbox5">Option Five</label>
+                        <br />
+                    </p>
+
+                    $(function () {
+                    var $tblChkBox = $("#checkBoxes input:checkbox");
+                    $("#ckbCheckAll").on("click", function () {
+                    $($tblChkBox).prop('checked', $(this).prop('checked'));
+                    });
+                    });
+                    Ideally when the user deselects any of the checkboxes, the master checkbox should also get deselected. This can be done using the following code:
+
+                    $("#checkBoxes").on("change", function () {
+                    if (!$(this).prop("checked")) {
+                    $("#ckbCheckAll").prop("checked", false);
+                    }
+                    });
+                    The code checks the change event of the checkboxes to see if any of the check boxes have been unchecked. If yes, uncheck the Master checkbox.

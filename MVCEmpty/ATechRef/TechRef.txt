@@ -1,0 +1,18 @@
+﻿Empty Project Configuration from scratch
+
+1)EnableFriendlyUrls
+====================
+To generate a friendly URL without extensions, and add routing to your web application (similar to MVC projects) by using ASP.NET Friendly Urls.
+ASP.NET Friendly Urls also add View switching functionality so you can easily between a mobile view and desktop view.
+ install the package “Microsoft.AspNet.FriendlyUrls”[Install-Package Microsoft.AspNet.FriendlyUrls]
+ If you do not have an existing RouteConfig class (like in our project), a new RouteConfig.csfile
+ call EnableFriendlyUrls() in your RegisterRoutes method *before* any existing route registrations.
+2)Add Global.asax 
+ ==================
+ and call RouteConfig.RegisterRoutes method
+3)Enable Web Optimization techniques such as Bundling and Minification
+ =======================================================================
+ Install NuGet package : Microsoft.AspNet.Web.Optimization.WebForms
+ Add a Bundle.config file to your project and define the CSS bundle
+ Turn on bundling and minification - by setting with the EnableOptimizations property on the BundleTable class. So, if you want to turn on bundling and minification with debug=true, then add a BundleConfig.cs file to your App_Start folder 
+ update Global.asax to call BundleConfig.RegisterBundles 

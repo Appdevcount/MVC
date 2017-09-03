@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "JSFormElement1";
+}
+
+<h2>JSFormElement1</h2>
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function ()
+    {
+
+        var Operator = '2'; 
+        if (Operator == "1") { $("#Type option[value='A']").remove(); $("#Type option[value='B']").remove(); }
+        else if (Operator == "2") { $("#Type option[value='C']").remove(); $("#Type option[value='D']").remove(); }
+        else if (Operator == "3") { $("#Type option[value='A']").remove();  }
+        else if (Operator == "4") {  }
+    })
+</script>
+
+@*Removing Options in drop down dynamically*@
+
+@Html.DropDownList("Type", new List<SelectListItem>
+
+                 {
+                    new SelectListItem{ Text="A", Value = "A" },
+                    new SelectListItem{ Text="B", Value = "B" },
+                    new SelectListItem{ Text="C", Value = "C" },
+                    new SelectListItem{ Text="D", Value = "D" },
+                    new SelectListItem{ Text="E", Value = "E" }
+                 }, "-Select-")
+
+@*ToolTip*@
+
+<div class="tooltips" title="Please select the Country">
+    <select id="Country" name="Country" placeholder="Phantasyland">
+        <option>Select Country</option>
+        <option>Kuwait</option>
+        <option>Iraq</option>
+        <option>Bahrain</option>
+        <option>Sudan</option>
+    </select>
+</div>

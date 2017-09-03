@@ -1,0 +1,478 @@
+﻿@model MVC.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "PartialAjaxModalProfile";
+}
+<h2>PartialAjaxModalProfile</h2>
+
+<script src="~/Scripts/CustomValidatorjs.js"></script>
+
+<script src="~/Scripts/JQueryUIBlock/jquery.blockUI.js"></script>
+
+@Html.ActionLink("Form Modal", "PartialAjaxModal", "Form", new { Id = 1 }, new
+{
+    @* Needed to link to the html of the modal*@
+data_target = "#modal-container",
+    @* Tells the bootstrap javascript to do its thing*@
+    data_toggle = "modal",
+    @class = "btn btn-default",
+    @Id="GifButtonID"
+})
+
+<div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
+</div>
+
+<a href="#" data-toggle="modal" data-target="#upload-avatar" class="button"><i class="fa fa-plus"></i> Same Page Modal</a>
+<div class="modal" id="upload-avatar" tabindex="-1" role="dialog" aria-labelledby="upload-avatar-title" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1000px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Form Modal</h4>
+            </div>
+            @*@using (Ajax.BeginForm("PartialAjaxModal", "Form",
+                                                                new AjaxOptions
+                                                                {
+                                                                    HttpMethod = "POST",
+                                                                    InsertionMode = InsertionMode.ReplaceWith,
+                                                                    UpdateTargetId = "Viewbagstatus",
+                                                                    OnBegin= "InputValidatoronFormSubmit"
+                                                                }, new { enctype = "multipart/form-data" }))//You cannot upload files using Ajax.BeginForm(). This is not supported. Instead can upload in Html.BeginForm()
+                {*@
+            @using (Html.BeginForm("PartialAjaxModal", "Form", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox"> Remember me</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                            <div class="form-horizontal">
+                                <form>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Service.Name" class="control-label">Service Name</label>
+                                            <input class="form-control" id="txtServiceName" maxLength="500" name="Service.Name" required="" type="text" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Service.Description" class="control-label">Description</label>
+                                            <input class="form-control" id="txtdesc" maxLength="500" name="Service.Description" required="" type="text" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Service.Country" class=" control-label">Country</label>
+                                            <select class="form-control" id="DDlcountry" name="Service.Country" onchange="BindCountry();" style="width: 100%;">
+                                                <option value="">--Select--</option>
+                                                <option>Bahrain</option>
+                                                <option>Kuwait</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <h4>Profile</h4>
+                        <hr />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prof.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prof.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prof.Age, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prof.Age, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.About, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.Prof.About, new { @class = "form-control", @id = "About", @rows = "3", @cols = "150" })
+                                @Html.ValidationMessageFor(model => model.Prof.About, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.Prof.InterestedDomainsBox, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.ListBoxFor(model => model.Prof.InterestedDomainsBox, new List<SelectListItem> { new SelectListItem { Text="A",Value="A" },
+                               new SelectListItem { Text="B",Value="B" },
+                               new SelectListItem { Text="C",Value="C" },
+                               new SelectListItem { Text="D",Value="D" },
+                               new SelectListItem { Text="E",Value="E" },
+                               new SelectListItem { Text="F",Value="F" },
+                               new SelectListItem { Text="G",Value="G" },
+                               new SelectListItem { Text="H",Value="H" },
+                               new SelectListItem { Text="I",Value="I" }}, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Prof.InterestedDomainsBox, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.InterestedDomainsBox, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.ListBoxFor(model => model.Prof.InterestedDomainsBox, Model.InterestedDomainBoxsources, new { @class = "form-control", @size = 4 })
+                                @Html.ValidationMessageFor(model => model.Prof.InterestedDomainsBox, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.Prof.Skillsets, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @for (var i = 0; i < Model.SkillsetSources.Count; i++)
+                                    {
+                                        @Html.HiddenFor(model => model.SkillsetSources[i].Text)
+                                        @Html.DisplayFor(model => model.SkillsetSources[i].Text)
+                                        @Html.CheckBoxFor(model => model.SkillsetSources[i].Selected, new { htmlAttributes = new { @class = "form-control" } }) @Model.SkillsetSources[i].Text
+                                        @Html.ValidationMessageFor(model => model.Prof.Skillsets, "", new { @class = "text-danger" })
+                                    }
+
+                                    @Html.ValidationMessageFor(model => model.Prof.Skillsets, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.Prof.Skillsets, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @foreach (var item in Model.SkillsetSources)
+                                    {
+                                        @Html.Label(item.Text)
+                                        <input type="checkbox" name="Skillsets" value="@item.Value" class = "hobbycls" id = "Hobbies"/>
+                                    }
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Checkboxlist, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @*for (var i = 0; i < Model.SkillsetSources.Count; i++)*@
+                                //{
+                                @*@Html.HiddenFor(model => model.SkillsetSources[i].Text)*@
+                                @*@Html.DisplayFor(model => model.SkillsetSources[i].Text)*@
+                                @*Html.LabelFor(model=>model.SkillsetSources[i].Text)*@
+                                @*Html.CheckBoxFor(model => model.SkillsetSources[i].Selected,  new {  @value= Model.SkillsetSources[i].Value } )*@
+                                @*@Html.ValidationMessageFor(model => model.Prof.Skillsets, "", new { @class = "text-danger" })*@
+                                //}
+                                @*@foreach (var item in Model.SkillsetSources)
+                                    {
+                                        @Html.Label(item.Text)
+                                        @*<input type="checkbox"  name="(@MetadataHelpers.GetPropertyName<ProfileViewModel>(m => m.Checkboxlist))" value="@item.Value" />*@
+                                @*<input type="checkbox" name="Checkboxlist"  value="@item.Value"  />*
+                                        @Html.CheckBox("Checkboxlist",item.Selected, new { @class = "form-control", @value = item.Value })
+                                        @Html.CheckBoxFor(model => model.SkillsetSources[i].Selected, new { @class = "form-control", @value = "@" })
+                                    }*@
+                                @foreach (var item in Model.SkillsetSources)
+                                {
+                                    @*<input type="checkbox" @Html.Raw(item.Selected ? "checked='checked'" : "") name="@(MetadataHelpers.GetPropertyName<MyModel>(m => m.MyNames))" value="@item.Value" />  @Html.Label(item.Text)*@
+                                    <input type="checkbox" @Html.Raw(item.Selected ? "checked='checked'" : "") name="Checkboxlist" value="@item.Value" />  @Html.Label(item.Text)
+
+                                }
+                                @Html.ValidationMessageFor(model => model.Checkboxlist, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.Region, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prof.Region, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prof.Region, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.Prof.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.Prof.Country, new List<SelectListItem> { new SelectListItem { Text="A",Value="A" },
+                               new SelectListItem { Text="B",Value="B" },
+                               new SelectListItem { Text="C",Value="C" },
+                               new SelectListItem { Text="D",Value="D" },
+                               new SelectListItem { Text="E",Value="E" },
+                               new SelectListItem { Text="F",Value="F" },
+                               new SelectListItem { Text="G",Value="G" },
+                               new SelectListItem { Text="H",Value="H" },
+                               new SelectListItem { Text="I",Value="I" }}, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Prof.Country, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.Prof.Country, Model.CheckEditorBox, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Prof.Country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.Prof.DocFile, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Prof.DocFile, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Prof.DocFile, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.Prof.DocFile, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Prof.DocFile, new { htmlAttributes = new { @class = "form-control",@type="file" } })
+                                    @Html.ValidationMessageFor(model => model.Prof.DocFile, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.DocFile, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="file" name="DocFiled" id="f" />
+                                @*@Html.TextBoxFor(model => model.Prof.DocFile, new { htmlAttributes = new { @class = "form-control", @type = "file" } })*@
+                                @*@Html.ValidationMessageFor(model => model.Prof.DocFile, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.ImgFile, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prof.ImgFile, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prof.ImgFile, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.RadioEditorBox, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @foreach (var Rd in Model.SkillsetSources)
+                                {
+                                    @Html.RadioButtonFor(model => model.Prof.RadioEditorBox, Rd.Value)
+                                    @Html.Label(Rd.Text) <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                }
+                                @Html.ValidationMessageFor(model => model.Prof.RadioEditorBox, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.CheckEditorBox, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prof.CheckEditorBox, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prof.CheckEditorBox, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prof.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prof.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prof.Time, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prof.Time, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prof.DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prof.DateTime, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prof.DateTime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="Viewbagstatus">
+                        @ViewBag.Status
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Create" class="btn btn-success" /> data-target="modalsecondcontainer" data-toggle="modal"
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" data-toggle="modal" data-target="#AddMessageDynamically" class="button"><i class="fa fa-plus"></i> AddMessageDynamically</a>
+
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<div class="modal" id="AddMessageDynamically" tabindex="-1" role="dialog" aria-labelledby="upload-avatar-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="upload-avatar-title">Upload new avatar</h4>
+            </div>
+            <div class="modal-body">
+                <p>Please choose a file to upload. JPG, PNG, GIF only.</p>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="file">File input</label>
+                        <input type="file" id="file">
+                        <p class="help-block">Files up to 5Mb only.</p>
+                    </div>
+                    <input type="text" id="Passit" />
+                    <button type="button" class="hl-btn hl-btn-default" id="btnUploadCancel">Cancel data-dismiss="modal"</button>
+                    <button type="button" class="hl-btn hl-btn-green">Upload</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<br />
+
+P.S. This will directly limit the boundaries of thumbnails images[irregular height] -  style="height:100px;.
+or can form a  class like <br />
+.Thumbimgh{
+height:100px
+}
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                @*<img src="..." alt="...">*@
+                <img src="~/Content/Images/2144140186.jpg" style="height:150px"  />
+                <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                @*<img src="..." alt="...">*@
+                <img src="~/Content/Images/1551793152.png" style="height:150px"   />
+                <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                @*<img src="..." alt="...">*@
+                <img src="~/Content/Images/2006132171.jpg" style="height:150px"  />
+                <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnUploadCancel').click(function () {
+                debugger;
+                var v = $('#Passit').val();
+                //document.write(v);
+                $('#AddMessageDynamically').modal('toggle');
+                $('#About').val(v);
+
+            });
+            $('#conf').click(function () {
+                $('#modalsamggec').modal('toggle');
+
+            });
+        })
+        @*$(function () {
+//        var name = '(@MetadataHelpers.GetPropertyName<ProfileViewModel>(m => m.Checkboxlist))';
+  //      var displayName = '(@MetadataHelpers.GetPropertyDisplayName<ProfileViewModel>(m => m.Checkboxlist))';
+        var name = 'Checkboxlist';
+        var displayName = 'Checkboxlist';
+
+        validate.checkbox(name, 'Client side validation : ' + displayName + ' checkboxes must have at least one selection.');
+    });*@
+
+        //(function ($) {
+        //    $.validator.unobtrusive.adapters.addBool("booleanrequired", "required");
+        //}(jQuery));
+
+
+        //jQuery.validator.unobtrusive.adapters.add("checkbox", function (options) {
+        //    if (options.element.tagName.toUpperCase() == "INPUT" && options.element.type.toUpperCase() == "CHECKBOX") {
+        //        options.rules["required"] = true;
+        //        if (options.message) {
+        //            options.messages["required"] = options.message;
+        //        }
+        //    }
+        //});
+
+    </script>
+
+
+
+    @Html.Partial("ProfList", Model.proflist);
+
+
+    @*<script type="text/javascript">
+        // The normal bootstrap behavior is to only grab the content for the modal once, if you need to pull in different partial views then the data on the modal will have to be cleared.
+            $(function () {
+                debugger;
+                // when the modal is closed
+                //$('#modal-container').on('hidden.bs.modal', function () {
+                //    // remove the bs.modal data attribute from it
+                //    $(this).removeData('bs.modal');
+                //    // and empty the modal-content element
+                //    $('#modal-container .modal-content').empty();
+                });
+
+
+        </script>*@
+
+<script type="text/javascript">
+
+    //Working -but can use it properly in a Ajax.actionlink request
+
+    // unblock when ajax activity stops
+    $(document).ajaxStop($.unblockUI({ fadeOut: 200 }));
+
+    $(document).ready(function() {
+        $('#GifButtonID').click(function () {
+            $.blockUI({
+                message: $('#domMessage'),
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#FFFFFF',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: 1,
+                    color: '#000'
+                }
+                //css: { width: '4%', border: '0px solid #FFFFFF', cursor: 'wait', backgroundColor: '#FFFFFF' },
+                //overlayCSS: { backgroundColor: '#FFFFFF', opacity: 0.0, cursor: 'wait' }
+            });
+        });
+    });
+
+</script>
+
+
+<div id="domMessage" style="display:none;">
+    <img src="~/Content/Images/Ellipsis Gif.gif" />
+</div> 
